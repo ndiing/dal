@@ -134,3 +134,11 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+dev
+dev2
+migrations
+migrations2
+test.db
+test.db-shm
+test.db-wal
