@@ -47,8 +47,10 @@ class Raw extends Thenable {
     }
 
     build() {
-        if(this.used){return[]}
-        this.used=true
+        if (this.used) {
+            return [];
+        }
+        this.used = true;
 
         if (Array.isArray(this._query)) {
             this.query = this._query.reduce((acc, curr, i) => {

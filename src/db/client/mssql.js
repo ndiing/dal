@@ -1,15 +1,12 @@
-const { ConnectionPool, Transaction, Table } = require("mssql/msnodesqlv8");
-const mssql = require("mssql/msnodesqlv8");
 const Client = require("../client.js");
 const TSQLQuery = require("../query/tsql.js");
 const TSQLSchema = require("../schema/tsql.js");
 
-
 class MssqlClient extends Client {
-    /**@type {ConnectionPool}*/
+    /**@type {import("mssql/msnodesqlv8").ConnectionPool}*/
     pool = null;
 
-    constructor(config, dialect,debug) {
+    constructor(config, dialect, debug) {
         super(
             {
                 user: undefined,
@@ -26,7 +23,8 @@ class MssqlClient extends Client {
                 },
                 ...config,
             },
-            dialect,debug
+            dialect,
+            debug,
         );
     }
 
@@ -40,7 +38,8 @@ class MssqlClient extends Client {
 
     async connect() {
         if (!this.pool) {
-            const pool = new ConnectionPool(this.config);
+            const mssql = require("mssql/msnodesqlv8");
+            const pool = new mssql.ConnectionPool(this.config);
             this.pool = await pool.connect();
         }
         return this.pool;
@@ -87,7 +86,7 @@ class MssqlClient extends Client {
             return await callback(this);
         }
         const pool = await this.connect();
-        /**@type {Transaction}*/
+        /**@type {import("mssql/msnodesqlv8").Transaction}*/
         const client = pool.transaction(pool);
         /**@type {MssqlClient}*/
         const current = Object.create(this);

@@ -38,7 +38,7 @@ class Query extends Thenable {
     /**@private*/ _subquery = null;
     /**@private*/ _reference = null;
     used = null;
-    
+
     constructor(client) {
         super(client);
         this.params = this.client.defaultParams();
@@ -924,8 +924,10 @@ class Query extends Thenable {
     }
 
     build() {
-        if(this.used){return[]}
-        this.used=true
+        if (this.used) {
+            return [];
+        }
+        this.used = true;
 
         const arr = [];
 

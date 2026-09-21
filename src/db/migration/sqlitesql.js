@@ -1,15 +1,8 @@
 const Migration = require("../migration.js");
 
-class SQLiteSQLMigration extends Migration{
-    
+class SQLiteSQLMigration extends Migration {
     async _hasTable() {
-        return await this.client
-            .query()
-            .select()
-            .from("sqlite_master")
-            .where("type", 'table')
-            .where("name", this.tableName)
-            .exists();
+        return await this.client.query().select().from("sqlite_master").where("type", "table").where("name", this.tableName).exists();
     }
 
     async _createTable() {
@@ -20,7 +13,6 @@ class SQLiteSQLMigration extends Migration{
             table.column("applied_at").dateTime().notNull().default(this.client.raw("CURRENT_TIMESTAMP"));
         });
     }
-
 }
 
-module.exports=SQLiteSQLMigration
+module.exports = SQLiteSQLMigration;

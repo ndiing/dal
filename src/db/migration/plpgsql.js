@@ -1,7 +1,5 @@
 const Migration = require("../migration.js");
 
-class PLpgSQLMigration extends Migration{
-    
-}
+class PLpgSQLMigration extends Migration {}
 
-module.exports=PLpgSQLMigration
+module.exports = PLpgSQLMigration;

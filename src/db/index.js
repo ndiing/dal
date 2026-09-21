@@ -1,10 +1,10 @@
 const { isBoolean, isString } = require("./util");
 
 class Index {
-    /**@private*/_table = null;
-    /**@private*/_method = null;
-    /**@private*/_name = null;
-    /**@private*/_on = null;
+    /**@private*/ _table = null;
+    /**@private*/ _method = null;
+    /**@private*/ _name = null;
+    /**@private*/ _on = null;
 
     constructor(table = null, method = null, name = null) {
         this._table = table;

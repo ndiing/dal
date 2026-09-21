@@ -1,14 +1,12 @@
-const Database = require("better-sqlite3");
 const Client = require("../client.js");
 const SQLiteSQLQuery = require("../query/sqlitesql.js");
 const SQLiteSQLSchema = require("../schema/sqlitesql.js");
 
-
 class BetterSqlite3Client extends Client {
-    /**@type {Database.Database}*/
+    /**@type {import("better-sqlite3").Database}*/
     pool = null;
 
-    constructor(config, dialect,debug) {
+    constructor(config, dialect, debug) {
         super(
             {
                 database: ":memory:",
@@ -32,7 +30,8 @@ class BetterSqlite3Client extends Client {
                 },
                 ...config,
             },
-            dialect,debug
+            dialect,
+            debug,
         );
         this.counter = 0;
     }
@@ -47,6 +46,7 @@ class BetterSqlite3Client extends Client {
 
     async connect() {
         if (!this.pool) {
+            const Database = require("better-sqlite3");
             this.pool = new Database(this.config.database, {});
             for (const name in this.config.options) {
                 const value = this.config.options[name];

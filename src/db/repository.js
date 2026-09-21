@@ -17,7 +17,6 @@ const { isObject, isEmpty, isArray } = require("./util.js");
  * @property {Number} [limit=10]
  */
 
-
 const OPERATORS = new Set([
     // Comparison
     "=",
@@ -83,7 +82,7 @@ class Repository {
     softDelete = null;
 
     /**
-     * @param {import("./database.js")<D>} db 
+     * @param {import("./database.js")<D>} db
      */
     constructor(db) {
         this.db = db;

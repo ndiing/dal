@@ -31,12 +31,12 @@ class Table {
         this._constraint = new Constraint(this._name, null, null, null);
         this.constraints = [this._constraint];
     }
-    
+
     // * @returns {Column & Types[T]}
     /**
      *
      * @param {String} name
-    * @returns {ColumnTypes}
+     * @returns {ColumnTypes}
      */
     addColumn(name) {
         const method = this._method === "CREATE" ? null : "ADD";
@@ -44,34 +44,34 @@ class Table {
         this.columns.push(column);
         return column;
     }
-    
+
     // * @returns {Column & Types[T]}
     /**
      *
      * @param {String} name
-    * @returns {ColumnTypes}
+     * @returns {ColumnTypes}
      */
     column(name) {
         return this.addColumn(name);
     }
-    
+
     // * @returns {Column & Types[T]}
     /**
      *
      * @param {String} name
-    * @returns {ColumnTypes}
+     * @returns {ColumnTypes}
      */
     alterColumn(name) {
         const column = new Column(this._name, "ALTER", name, this.dialect);
         this.columns.push(column);
         return column;
     }
-    
+
     // * @returns {Column & Types[T]}
     /**
      *
      * @param {String} name
-    * @returns {ColumnTypes}
+     * @returns {ColumnTypes}
      */
     dropColumn(name) {
         const column = new Column(this._name, "DROP", name, this.dialect);

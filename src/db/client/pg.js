@@ -1,14 +1,12 @@
-const { Pool, PoolClient } = require("pg");
 const Client = require("../client.js");
 const PLpgSQLQuery = require("../query/plpgsql.js");
 const PLpgSQLSchema = require("../schema/plpgsql.js");
-
 
 class PgClient extends Client {
     /**@type {Pool}*/
     pool = null;
 
-    constructor(config, dialect,debug) {
+    constructor(config, dialect, debug) {
         super(
             {
                 user: undefined,
@@ -18,7 +16,8 @@ class PgClient extends Client {
                 port: 5432,
                 ...config,
             },
-            dialect,debug,
+            dialect,
+            debug,
         );
     }
 
@@ -44,7 +43,8 @@ class PgClient extends Client {
 
     async connect() {
         if (!this.pool) {
-            const pool = new Pool(this.config);
+            const pg = require("pg");
+            const pool = new pg.Pool(this.config);
             this.pool = pool;
         }
         return this.pool;
@@ -90,7 +90,7 @@ class PgClient extends Client {
             return await callback(this);
         }
         const pool = await this.connect();
-        /**@type {PoolClient}*/
+        /**@type {import("pg").PoolClient}*/
         const client = await pool.connect();
         /**@type {PgClient}*/
         const current = Object.create(this);

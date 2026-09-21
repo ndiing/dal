@@ -367,7 +367,7 @@ describe("schema-sqlitesql", () => {
 
     test("test", () => {
         db.schema().createTable("table", (table) => {
-            table.column("col1")
+            table.column("col1");
         });
     });
 });
