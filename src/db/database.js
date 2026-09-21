@@ -60,7 +60,12 @@ class Database {
         const { client, connection, migrations, debug } = config;
         const dialect = Dialects[client];
         this.client = new Clients[client](connection, dialect, !!debug);
-        this._migration = new Migrations[dialect](this.client, migrations);
+        Object.defineProperty(this,'_migration',{
+            value: new Migrations[dialect](this.client, migrations),
+            configurable:true,
+            enumerable:false,
+            writable:true
+        })
     }
 
     escapeLike(any) {

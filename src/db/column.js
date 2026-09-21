@@ -45,9 +45,9 @@ class Column {
                     this._type = types[type](...arguments);
                     return this;
                 },
-                writable: true,
-                enumerable: false,
                 configurable: true,
+                enumerable: false,
+                writable: true,
             });
         }
     }

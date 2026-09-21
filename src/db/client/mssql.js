@@ -1,6 +1,7 @@
 const Client = require("../client.js");
 const TSQLQuery = require("../query/tsql.js");
 const TSQLSchema = require("../schema/tsql.js");
+const { requireDriver } = require("../util.js");
 
 class MssqlClient extends Client {
     /**@type {import("mssql/msnodesqlv8").ConnectionPool}*/
@@ -38,7 +39,7 @@ class MssqlClient extends Client {
 
     async connect() {
         if (!this.pool) {
-            const mssql = require("mssql/msnodesqlv8");
+            const mssql = requireDriver("mssql");
             const pool = new mssql.ConnectionPool(this.config);
             this.pool = await pool.connect();
         }

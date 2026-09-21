@@ -1,6 +1,7 @@
 const Client = require("../client.js");
 const PLpgSQLQuery = require("../query/plpgsql.js");
 const PLpgSQLSchema = require("../schema/plpgsql.js");
+const { requireDriver } = require("../util.js");
 
 class PgClient extends Client {
     /**@type {Pool}*/
@@ -43,7 +44,7 @@ class PgClient extends Client {
 
     async connect() {
         if (!this.pool) {
-            const pg = require("pg");
+            const pg = requireDriver("pg");
             const pool = new pg.Pool(this.config);
             this.pool = pool;
         }

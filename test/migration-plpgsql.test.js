@@ -11,6 +11,8 @@ const db = new Database({
     // debug:true
 });
 
+// console.log(db)
+
 describe("migration-plpgsql", () => {
     test("migrate", async () => {
         // await db.schema().dropTable('users2').then(console.log)

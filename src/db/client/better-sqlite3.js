@@ -1,6 +1,7 @@
 const Client = require("../client.js");
 const SQLiteSQLQuery = require("../query/sqlitesql.js");
 const SQLiteSQLSchema = require("../schema/sqlitesql.js");
+const { requireDriver } = require("../util.js");
 
 class BetterSqlite3Client extends Client {
     /**@type {import("better-sqlite3").Database}*/
@@ -46,7 +47,7 @@ class BetterSqlite3Client extends Client {
 
     async connect() {
         if (!this.pool) {
-            const Database = require("better-sqlite3");
+            const Database = requireDriver("better-sqlite3");
             this.pool = new Database(this.config.database, {});
             for (const name in this.config.options) {
                 const value = this.config.options[name];
