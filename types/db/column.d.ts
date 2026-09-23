@@ -1,17 +1,7 @@
-/**@typedef {Column & PLpgSQLTypes & SQLiteSQLTypes & TSQLTypes} ColumnTypes*/
 export = Column;
 import Constraint = require("./constraint.js");
-export type Types = {
-    sqlitesql: SQLiteSQLTypes;
-    plpgsql: PLpgSQLTypes;
-    tsql: TSQLTypes;
-};
-/**
- * @typedef Types
- * @property {SQLiteSQLTypes} sqlitesql
- * @property {PLpgSQLTypes} plpgsql
- * @property {TSQLTypes} tsql
- */
+export type ColumnTypes = Column & PLpgSQLTypes & SQLiteSQLTypes & TSQLTypes;
+/**@typedef {Column & PLpgSQLTypes & SQLiteSQLTypes & TSQLTypes} ColumnTypes*/
 declare class Column {
     dialect: any;
     /**@private*/ private _table;
@@ -35,5 +25,4 @@ declare class Column {
     default(value: any): this;
     references(table: any, ...columns: any[]): this;
 }
-export type ColumnTypes = Column & PLpgSQLTypes & SQLiteSQLTypes & TSQLTypes;
 //# sourceMappingURL=column.d.ts.map
