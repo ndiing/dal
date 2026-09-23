@@ -4,16 +4,16 @@ const path = require("path");
 /**
  * @typedef Context
  * @property {() => import('./query.js')} query
- * @property {() => import('./schema.js')<'PLpgSQL'|'SQLiteSQL'|'TSQL'>} schema
+ * @property {() => import('./schema.js')} schema
  * @property {() => import('./raw.js')} raw
  */
 
 class Migration {
-    /**@type {import('./database.js')<'pg'|'better-sqlite3'|'mssql'>}*/
+    /**@type {import('./client.js')}*/
     client = null;
 
     /**
-     * @param {import('./database.js')<'pg'|'better-sqlite3'|'mssql'>} client
+     * @param {import('./client.js')} client
      * @param {Object} config
      */
     constructor(client, config = {}) {
@@ -91,6 +91,10 @@ class Migration {
         return await client.query().insert(this.tableName, { name, batch }).returning();
     }
 
+    /**
+     * @async
+     * @returns {unknown}
+     */
     async migrate() {
         const pending = this._getPending();
         if (!pending.length) {
@@ -142,6 +146,10 @@ class Migration {
         return await client.query().delete(this.tableName).where("id", id).returning();
     }
 
+    /**
+     * @async
+     * @returns {unknown}
+     */
     async rollback() {
         await this._ensureTable();
 

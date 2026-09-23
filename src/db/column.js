@@ -9,9 +9,6 @@ const Types = {
     tsql: TSQLTypes,
 };
 
-/**@typedef {Column & PLpgSQLTypes & SQLiteSQLTypes & TSQLTypes} ColumnTypes*/
-
-
 class Column {
     /**@private*/ _table = null;
     /**@private*/ _method = null;
@@ -142,5 +139,7 @@ class Column {
         return this;
     }
 }
+
+/**@typedef {Column & PLpgSQLTypes & SQLiteSQLTypes & TSQLTypes} ColumnTypes*/
 
 module.exports = Column;

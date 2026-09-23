@@ -2,8 +2,6 @@ const Table = require("./table.js");
 const Thenable = require("./thenable.js");
 const { isString, isBoolean, isNumber, RAW, CONSTRAINT, TABLE } = require("./util.js");
 
-/**@typedef {import("./column.js").Types} Types*/
-
 /**
  * @callback TableCallback
  * @param {Table} table
@@ -435,8 +433,6 @@ class Schema extends Thenable {
     }
 
     /**
-     * Description placeholder
-     *
      * @param {*} onfulfilled
      * @param {*} onrejected
      * @returns {*}

@@ -1,9 +1,7 @@
 export = Schema;
 import Table = require("./table.js");
 import Thenable = require("./thenable.js");
-export type Types = import("./column.js").Types;
 export type TableCallback = (table: Table) => any;
-/**@typedef {import("./column.js").Types} Types*/
 /**
  * @callback TableCallback
  * @param {Table} table

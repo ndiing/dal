@@ -113,7 +113,7 @@ class Database {
     }
 
     /**
-     * @param {import("./client.js").TransactionCallback} callback 
+     * @param {import("./client.js").TransactionCallback} callback
      * @returns {import("./client.js")}
      */
     async transaction(callback) {

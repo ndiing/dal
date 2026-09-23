@@ -33,8 +33,6 @@ class Thenable {
     }
 
     /**
-     * Description placeholder
-     *
      * @param {*} onfulfilled
      * @param {*} onrejected
      * @returns {*}
@@ -50,8 +48,6 @@ class Thenable {
     }
 
     /**
-     * Description placeholder
-     *
      * @param {*} onrejected
      * @returns {*}
      */
@@ -60,8 +56,6 @@ class Thenable {
     }
 
     /**
-     * Description placeholder
-     *
      * @param {*} onfinally
      * @returns {*}
      */
