@@ -5,9 +5,8 @@ const { isString, isBoolean, isNumber, RAW, CONSTRAINT, TABLE } = require("./uti
 /**@typedef {import("./column.js").Types} Types*/
 
 /**
- * @template {keyof Types} T
  * @callback TableCallback
- * @param {Table<T>} table
+ * @param {Table} table
  */
 
 /**
@@ -17,15 +16,14 @@ const { isString, isBoolean, isNumber, RAW, CONSTRAINT, TABLE } = require("./uti
  * @param {String|import('./constraint.js').ConstraintCallback} value
  */
 
-/**@template {keyof Types} T*/
 
 class Schema extends Thenable {
-    // /**@type {Table[]}*/
+    /**@type {Table[]}*/
     tables = [];
 
     /**
      * @param {String} name
-     * @param {TableCallback<T>} callback
+     * @param {TableCallback} callback
      * @returns {this}
      */
     createTable(name, callback) {
@@ -37,7 +35,7 @@ class Schema extends Thenable {
 
     /**
      * @param {String} name
-     * @param {TableCallback<T>} callback
+     * @param {TableCallback} callback
      * @returns {this}
      */
     alterTable(name, callback) {

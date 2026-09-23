@@ -1,26 +1,22 @@
 export = Database;
-export type Driver = {
-    "better-sqlite3": "sqlitesql";
-    pg: "plpgsql";
-    mssql: "tsql";
+declare const Dialects: {
+    "better-sqlite3": string;
+    mssql: string;
+    pg: string;
 };
+export type DialectKey = keyof typeof Dialects;
+export type DialectValue = typeof Dialects[DialectKey];
 export type Connection = {
     user: string;
     password: string;
     server: string;
     database: string;
 };
-export type Config<D extends keyof Driver> = {
-    client: D;
+export type Config = {
+    client: DialectKey;
     connection: Connection;
     debug: boolean;
 };
-/**
- * @typedef Driver
- * @property {"sqlitesql"} better-sqlite3
- * @property {"plpgsql"} pg
- * @property {"tsql"} mssql
- */
 /**
  * @typedef Connection
  * @property {String} user
@@ -29,18 +25,16 @@ export type Config<D extends keyof Driver> = {
  * @property {String} database
  */
 /**
- * @template {keyof Driver} D
  * @typedef Config
- * @property {D} client
+ * @property {DialectKey} client
  * @property {Connection} connection
  * @property {Boolean} debug
  */
-/**@template {keyof Driver} D*/
-declare class Database<D extends keyof Driver> {
+declare class Database {
     /**@type {import("./client.js")} */
     client: import("./client.js");
-    /**@param {Config<D>} config */
-    constructor(config?: Config<D>);
+    /**@param {Config} config */
+    constructor(config?: Config);
     escapeLike(any: any): string;
     escapeGlob(any: any): string;
     escapeIdentifier(any: any): string;
@@ -49,8 +43,8 @@ declare class Database<D extends keyof Driver> {
     raw(): import("./raw.js");
     /**@returns {import("./query.js")} */
     query(): import("./query.js");
-    /**@returns {import("./schema.js")<Driver[D]>}*/
-    schema(): import("./schema.js")<Driver[D]>;
+    /**@returns {import("./schema.js")} */
+    schema(): import("./schema.js");
     migrate(): Promise<any>;
     rollback(): Promise<any>;
     connect(): Promise<void>;

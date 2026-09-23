@@ -2,12 +2,11 @@ export = Schema;
 import Table = require("./table.js");
 import Thenable = require("./thenable.js");
 export type Types = import("./column.js").Types;
-export type TableCallback<T extends keyof Types> = (table: Table<T>) => any;
+export type TableCallback = (table: Table) => any;
 /**@typedef {import("./column.js").Types} Types*/
 /**
- * @template {keyof Types} T
  * @callback TableCallback
- * @param {Table<T>} table
+ * @param {Table} table
  */
 /**
  * @typedef Condition
@@ -15,21 +14,21 @@ export type TableCallback<T extends keyof Types> = (table: Table<T>) => any;
  * @param {String} operator
  * @param {String|import('./constraint.js').ConstraintCallback} value
  */
-/**@template {keyof Types} T*/
-declare class Schema<T extends keyof Types> extends Thenable {
-    tables: any[];
+declare class Schema extends Thenable {
+    /**@type {Table[]}*/
+    tables: Table[];
     /**
      * @param {String} name
-     * @param {TableCallback<T>} callback
+     * @param {TableCallback} callback
      * @returns {this}
      */
-    createTable(name: string, callback: TableCallback<T>): this;
+    createTable(name: string, callback: TableCallback): this;
     /**
      * @param {String} name
-     * @param {TableCallback<T>} callback
+     * @param {TableCallback} callback
      * @returns {this}
      */
-    alterTable(name: string, callback: TableCallback<T>): this;
+    alterTable(name: string, callback: TableCallback): this;
     /**
      * @param {String} name
      * @returns {this}

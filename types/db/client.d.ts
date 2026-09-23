@@ -1,4 +1,6 @@
 export = Client;
+import Raw = require("./raw.js");
+import Query = require("./query.js");
 import Schema = require("./schema.js");
 export type TransactionCallback = (client: Client) => any;
 /**
@@ -18,16 +20,12 @@ declare class Client {
     defaultParams(): {};
     defaultPlaceholder(name: any): any;
     formatPlaceholder(name: any): string;
-    /**@returns {import("./raw.js")} */
-    raw(): import("./raw.js");
-    /**@returns {import("./query.js")} */
-    query(): import("./query.js");
-    /**
-     * Description placeholder
-     *
-     * @returns {Schema<string | number | symbol>}
-     */
-    schema(): Schema<string | number | symbol>;
+    /**@returns {Raw} */
+    raw(): Raw;
+    /**@returns {Query} */
+    query(): Query;
+    /**@returns {Schema} */
+    schema(): Schema;
     connect(): Promise<void>;
     close(): Promise<void>;
     isReader(): Promise<void>;

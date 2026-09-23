@@ -13,7 +13,8 @@ declare class Raw extends Thenable {
     set(query?: null, ...params: any[]): this;
     /**@private*/
     private _setParams;
-    _buildRawQuery(value: any): any;
+    /**@private*/
+    private _buildRawQuery;
     build(): never[] | {
         query: null;
         params: null;

@@ -2,18 +2,15 @@ export = Table;
 import Column = require("./column.js");
 import Constraint = require("./constraint.js");
 import Index = require("./index.js");
-export type Types = Column.Types;
 export type PLpgSQLTypes = import('./types/plpgsql.js');
 export type SQLiteSQLTypes = import('./types/sqlitesql.js');
 export type TSQLTypes = import('./types/tsql.js');
 export type ColumnTypes = Column & PLpgSQLTypes & SQLiteSQLTypes & TSQLTypes;
-/**@typedef {Column.Types} Types*/
 /**@typedef {import('./types/plpgsql.js')} PLpgSQLTypes*/
 /**@typedef {import('./types/sqlitesql.js')} SQLiteSQLTypes*/
 /**@typedef {import('./types/tsql.js')} TSQLTypes*/
 /**@typedef {Column & PLpgSQLTypes & SQLiteSQLTypes & TSQLTypes} ColumnTypes*/
-/**@template {keyof Types} T*/
-declare class Table<T extends keyof Types> {
+declare class Table {
     dialect: any;
     /**@private*/ private _method;
     /**@private*/ private _name;

@@ -2,7 +2,6 @@ const Column = require("./column.js");
 const Constraint = require("./constraint.js");
 const Index = require("./index.js");
 
-/**@typedef {Column.Types} Types*/
 
 /**@typedef {import('./types/plpgsql.js')} PLpgSQLTypes*/
 /**@typedef {import('./types/sqlitesql.js')} SQLiteSQLTypes*/
@@ -10,7 +9,6 @@ const Index = require("./index.js");
 
 /**@typedef {Column & PLpgSQLTypes & SQLiteSQLTypes & TSQLTypes} ColumnTypes*/
 
-/**@template {keyof Types} T*/
 
 class Table {
     /**@private*/ _method = null;
@@ -32,7 +30,6 @@ class Table {
         this.constraints = [this._constraint];
     }
 
-    // * @returns {Column & Types[T]}
     /**
      *
      * @param {String} name
@@ -45,7 +42,6 @@ class Table {
         return column;
     }
 
-    // * @returns {Column & Types[T]}
     /**
      *
      * @param {String} name
@@ -55,7 +51,6 @@ class Table {
         return this.addColumn(name);
     }
 
-    // * @returns {Column & Types[T]}
     /**
      *
      * @param {String} name
@@ -67,7 +62,6 @@ class Table {
         return column;
     }
 
-    // * @returns {Column & Types[T]}
     /**
      *
      * @param {String} name

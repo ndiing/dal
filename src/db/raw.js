@@ -34,6 +34,7 @@ class Raw extends Thenable {
         }
     }
 
+    /**@private*/
     _buildRawQuery(value) {
         if (value && (value[RAW] || value[QUERY])) {
             value._reference = true;

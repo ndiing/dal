@@ -63,10 +63,9 @@ const OPERATORS = new Set([
 
 const DIRECTIONS = new Set(["ASC", "DESC"]);
 
-/**@template {keyof import("./database.js").Driver} D*/
 
 class Repository {
-    /**@type {import("./database.js")<D>}*/
+    /**@type {import("./database.js")}*/
     db = null;
     /**@type {String}*/
     table = null;
@@ -82,7 +81,7 @@ class Repository {
     softDelete = null;
 
     /**
-     * @param {import("./database.js")<D>} db
+     * @param {import("./database.js")} db
      */
     constructor(db) {
         this.db = db;

@@ -12,10 +12,9 @@ export type Options = {
     page?: number;
     limit?: number;
 };
-/**@template {keyof import("./database.js").Driver} D*/
-declare class Repository<D extends keyof import("./database.js").Driver> {
-    /**@type {import("./database.js")<D>}*/
-    db: import("./database.js")<D>;
+declare class Repository {
+    /**@type {import("./database.js")}*/
+    db: import("./database.js");
     /**@type {String}*/
     table: string;
     /**@type {Object.<String, Column>}*/
@@ -29,9 +28,9 @@ declare class Repository<D extends keyof import("./database.js").Driver> {
     /**@type {String}*/
     softDelete: string;
     /**
-     * @param {import("./database.js")<D>} db
+     * @param {import("./database.js")} db
      */
-    constructor(db: import("./database.js")<D>);
+    constructor(db: import("./database.js"));
     /**
      * @param {String|Number|Object} id
      */

@@ -18,18 +18,17 @@ const Dialects = {
     pg: "plpgsql",
 };
 
+/**
+ * @typedef {keyof typeof Dialects} DialectKey
+ * @typedef {typeof Dialects[DialectKey]} DialectValue
+ */
+
 const Migrations = {
     sqlitesql: SQLiteSQLMigration,
     tsql: TSQLMigration,
     plpgsql: PLpgSQLMigration,
 };
 
-/**
- * @typedef Driver
- * @property {"sqlitesql"} better-sqlite3
- * @property {"plpgsql"} pg
- * @property {"tsql"} mssql
- */
 
 /**
  * @typedef Connection
@@ -40,20 +39,18 @@ const Migrations = {
  */
 
 /**
- * @template {keyof Driver} D
  * @typedef Config
- * @property {D} client
+ * @property {DialectKey} client
  * @property {Connection} connection
  * @property {Boolean} debug
  */
 
-/**@template {keyof Driver} D*/
 
 class Database {
     /**@type {import("./client.js")} */
     client = null;
 
-    /**@param {Config<D>} config */
+    /**@param {Config} config */
     constructor(config = {}) {
         const { client, connection, migrations, debug } = config;
         const dialect = Dialects[client];
@@ -92,7 +89,7 @@ class Database {
         return this.client.query();
     }
 
-    /**@returns {import("./schema.js")<Driver[D]>}*/
+    /**@returns {import("./schema.js")} */
     schema() {
         return this.client.schema();
     }
@@ -117,7 +114,7 @@ class Database {
         return this.client.execute(query, params);
     }
 
-    /**@type {import("./client.js")['transaction']}*/
+    /**@type {import("./client.js").TransactionCallback}*/
     async transaction(callback) {
         return this.client.transaction(callback);
     }
