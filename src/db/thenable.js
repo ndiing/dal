@@ -1,13 +1,13 @@
 class Thenable {
     /**@type {import("./client.js")}*/
     client = null;
-    /**@private*/ _transforms = [];
+     _transforms = [];
 
     constructor(client) {
         this.client = client;
     }
 
-    /**@private*/
+    
     _transform(rows) {
         return this._transforms.reduce((acc, fn) => fn(acc), rows);
     }

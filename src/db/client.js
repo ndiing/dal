@@ -46,12 +46,10 @@ class Client {
         return `@${name}`;
     }
 
-    /**@returns {Raw}*/
     raw() {
         return new Raw(this).set(...arguments);
     }
 
-    /**@returns {Query}*/
     query() {
         return new Query(this);
     }
