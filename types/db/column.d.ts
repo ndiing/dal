@@ -34,3 +34,4 @@ declare class Column {
     default(value: any): this;
     references(table: any, ...columns: any[]): this;
 }
+//# sourceMappingURL=column.d.ts.map

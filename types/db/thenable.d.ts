@@ -14,3 +14,4 @@ declare class Thenable {
     catch(onrejected: any): Promise<any>;
     finally(onfinally: any): Promise<any>;
 }
+//# sourceMappingURL=thenable.d.ts.map

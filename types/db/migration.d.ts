@@ -52,3 +52,4 @@ declare class Migration {
     _unmarkApplied(client: any, id: any): Promise<any>;
     rollback(): Promise<any>;
 }
+//# sourceMappingURL=migration.d.ts.map

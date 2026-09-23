@@ -30,3 +30,4 @@ declare const SQLiteSQLTypes: {
     /**@returns {Column}*/ real: () => Column;
     /**@returns {Column}*/ numeric: () => Column;
 };
+//# sourceMappingURL=sqlitesql.d.ts.map

@@ -33,3 +33,4 @@ declare const DRIVERS: {
  * @returns {ReturnType<typeof DRIVERS[keyof typeof DRIVERS]>}
  */
 declare const requireDriver: (driver: keyof typeof DRIVERS) => ReturnType<typeof DRIVERS[keyof typeof DRIVERS]>;
+//# sourceMappingURL=util.d.ts.map

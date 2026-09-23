@@ -5,3 +5,4 @@ declare class TSQLSchema extends Schema {
         query: string;
     }[];
 }
+//# sourceMappingURL=tsql.d.ts.map

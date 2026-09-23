@@ -36,3 +36,4 @@ declare const TSQLTypes: {
     /**@returns {Column}*/ geometry: () => Column;
     /**@returns {Column}*/ variant: () => Column;
 };
+//# sourceMappingURL=tsql.d.ts.map

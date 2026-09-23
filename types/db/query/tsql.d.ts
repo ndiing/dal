@@ -15,3 +15,4 @@ declare class TSQLQuery extends Query {
         params: null;
     };
 }
+//# sourceMappingURL=tsql.d.ts.map

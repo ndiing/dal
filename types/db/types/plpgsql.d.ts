@@ -76,3 +76,4 @@ declare const PLpgSQLTypes: {
     /**@returns {Column}*/ uuid: () => Column;
     /**@returns {Column}*/ xml: () => Column;
 };
+//# sourceMappingURL=plpgsql.d.ts.map

@@ -356,3 +356,4 @@ declare class Query extends Thenable {
         params: null;
     };
 }
+//# sourceMappingURL=query.d.ts.map

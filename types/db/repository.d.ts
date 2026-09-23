@@ -72,3 +72,4 @@ declare class Repository<D extends keyof import("./database.js").Driver> {
     delete(id: any): Promise<any>;
     deleteBy(criteria?: {}): Promise<any>;
 }
+//# sourceMappingURL=repository.d.ts.map

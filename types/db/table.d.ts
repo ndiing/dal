@@ -62,3 +62,4 @@ declare class Table<T extends keyof Types> {
     index(name: any): Index;
     dropIndex(name?: boolean): Index;
 }
+//# sourceMappingURL=table.d.ts.map

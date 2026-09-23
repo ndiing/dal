@@ -19,3 +19,4 @@ declare class PgClient extends Client {
     isReader(command: any, rows: any): boolean;
     execute(query: any, params?: any[]): Promise<any>;
 }
+//# sourceMappingURL=pg.d.ts.map

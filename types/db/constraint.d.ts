@@ -65,3 +65,4 @@ declare class Constraint {
     onUpdate(action: any): void;
     onDelete(action: any): void;
 }
+//# sourceMappingURL=constraint.d.ts.map

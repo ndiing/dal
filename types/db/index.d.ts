@@ -7,3 +7,4 @@ declare class Index {
     constructor(table?: null, method?: null, name?: null);
     on(...columns: any[]): this;
 }
+//# sourceMappingURL=index.d.ts.map

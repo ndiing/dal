@@ -4,3 +4,4 @@ declare class TSQLMigration extends Migration {
     _hasTable(): Promise<any>;
     _createTable(): Promise<any>;
 }
+//# sourceMappingURL=tsql.d.ts.map
