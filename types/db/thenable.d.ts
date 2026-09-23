@@ -10,8 +10,27 @@ declare class Thenable {
     count(): this;
     exists(): this;
     pluck(column: any): this;
-    then(onfulfilled: any, onrejected: any): Promise<any>;
-    catch(onrejected: any): Promise<any>;
-    finally(onfinally: any): Promise<any>;
+    /**
+     * Description placeholder
+     *
+     * @param {*} onfulfilled
+     * @param {*} onrejected
+     * @returns {*}
+     */
+    then(onfulfilled: any, onrejected: any): any;
+    /**
+     * Description placeholder
+     *
+     * @param {*} onrejected
+     * @returns {*}
+     */
+    catch(onrejected: any): any;
+    /**
+     * Description placeholder
+     *
+     * @param {*} onfinally
+     * @returns {*}
+     */
+    finally(onfinally: any): any;
 }
 //# sourceMappingURL=thenable.d.ts.map

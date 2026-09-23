@@ -1,7 +1,6 @@
 const Raw = require("./raw.js");
 const Query = require("./query.js");
 const Schema = require("./schema.js");
-const Migration = require("./migration.js");
 
 /**
  * @callback TransactionCallback
@@ -47,14 +46,22 @@ class Client {
         return `@${name}`;
     }
 
+    /**@returns {Raw}*/
     raw() {
         return new Raw(this).set(...arguments);
     }
 
+    /**@returns {Query}*/
     query() {
         return new Query(this);
     }
 
+    
+    /**
+     * Description placeholder
+     *
+     * @returns {Schema<string | number | symbol>} 
+     */
     schema() {
         return new Schema(this);
     }

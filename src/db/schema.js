@@ -20,7 +20,7 @@ const { isString, isBoolean, isNumber, RAW, CONSTRAINT, TABLE } = require("./uti
 /**@template {keyof Types} T*/
 
 class Schema extends Thenable {
-    /**@type {Table[]}*/
+    // /**@type {Table[]}*/
     tables = [];
 
     /**
@@ -115,7 +115,7 @@ class Schema extends Thenable {
 
     /**
      * @private
-     * @param {Constraint} constraint
+     * @param {import('./constraint.js')} constraint
      * @param {Set} columns
      */
     _buildConditions(constraint, columns) {
@@ -152,7 +152,7 @@ class Schema extends Thenable {
 
     /**
      * @private
-     * @param {Constraint} constraint
+     * @param {import('./constraint.js')} constraint
      * @param {Boolean} block
      */
     _buildUnique(constraint, block) {
@@ -172,7 +172,7 @@ class Schema extends Thenable {
 
     /**
      * @private
-     * @param {Constraint} constraint
+     * @param {import('./constraint.js')} constraint
      * @param {Boolean} block
      */
     _buildPrimaryKey(constraint, block) {
@@ -192,7 +192,7 @@ class Schema extends Thenable {
 
     /**
      * @private
-     * @param {Constraint} constraint
+     * @param {import('./constraint.js')} constraint
      * @param {Boolean} block
      */
     _buildDefault(constraint, block) {
@@ -212,7 +212,7 @@ class Schema extends Thenable {
 
     /**
      * @private
-     * @param {Constraint} constraint
+     * @param {import('./constraint.js')} constraint
      * @param {Boolean} block
      */
     _buildCheck(constraint, block) {
@@ -231,7 +231,7 @@ class Schema extends Thenable {
 
     /**
      * @private
-     * @param {Constraint} constraint
+     * @param {import('./constraint.js')} constraint
      * @param {Boolean} block
      */
     _buildForeignKey(constraint, block) {
@@ -258,7 +258,7 @@ class Schema extends Thenable {
 
     /**
      * @private
-     * @param {Constraint} constraint
+     * @param {import('./constraint.js')} constraint
      * @param {String} str
      */
     _buildConstraint(constraint, str) {
@@ -272,7 +272,7 @@ class Schema extends Thenable {
 
     /**
      * @private
-     * @param {Constraint} constraint
+     * @param {import('./constraint.js')} constraint
      * @param {Boolean} block
      */
     _buildConstraints(constraint, block = false) {
@@ -437,6 +437,14 @@ class Schema extends Thenable {
         return arr;
     }
 
+    
+    /**
+     * Description placeholder
+     *
+     * @param {*} onfulfilled 
+     * @param {*} onrejected 
+     * @returns {*} 
+     */
     then(onfulfilled, onrejected) {
         return Promise.resolve(
             this.client.transaction(async (client) => {

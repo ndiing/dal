@@ -88,6 +88,7 @@ class Database {
         return this.client.raw(...arguments);
     }
 
+    /**@type {Client['query']}*/
     query() {
         return this.client.query();
     }
