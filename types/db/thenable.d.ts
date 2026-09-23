@@ -11,23 +11,17 @@ declare class Thenable {
     exists(): this;
     pluck(column: any): this;
     /**
-     * Description placeholder
-     *
      * @param {*} onfulfilled
      * @param {*} onrejected
      * @returns {*}
      */
     then(onfulfilled: any, onrejected: any): any;
     /**
-     * Description placeholder
-     *
      * @param {*} onrejected
      * @returns {*}
      */
     catch(onrejected: any): any;
     /**
-     * Description placeholder
-     *
      * @param {*} onfinally
      * @returns {*}
      */

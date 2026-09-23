@@ -133,8 +133,6 @@ declare class Schema extends Thenable {
         query: string;
     }[];
     /**
-     * Description placeholder
-     *
      * @param {*} onfulfilled
      * @param {*} onrejected
      * @returns {*}

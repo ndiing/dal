@@ -15,11 +15,9 @@ declare class Raw extends Thenable {
     private _setParams;
     /**@private*/
     private _buildRawQuery;
-    build():
-        | never[]
-        | {
-              query: null;
-              params: null;
-          };
+    build(): never[] | {
+        query: null;
+        params: null;
+    };
 }
 //# sourceMappingURL=raw.d.ts.map

@@ -1,4 +1,4 @@
-/**@typedef {import("../column.js").ColumnTypes} Column*/
+/**@typedef {import("../column.js")} Column*/
 
 const TSQLTypes = {
     /**@returns {Column}*/ varChar: (length) => ({ type: "VARCHAR", length }),

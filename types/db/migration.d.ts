@@ -1,8 +1,8 @@
 export = Migration;
 export type Context = {
-    query: () => import("./query.js");
-    schema: () => import("./schema.js");
-    raw: () => import("./raw.js");
+    query: () => import('./query.js');
+    schema: () => import('./schema.js');
+    raw: () => import('./raw.js');
 };
 /**
  * @typedef Context
@@ -26,12 +26,12 @@ declare class Migration {
     directory: any;
     tableName: string;
     /**@type {import('./client.js')}*/
-    client: import("./client.js");
+    client: import('./client.js');
     /**
      * @param {import('./client.js')} client
      * @param {Object} config
      */
-    constructor(client: import("./client.js"), config?: Object);
+    constructor(client: import('./client.js'), config?: Object);
     _hasTable(): Promise<any>;
     _createTable(): Promise<any>;
     _ensureTable(): Promise<any>;
@@ -47,8 +47,6 @@ declare class Migration {
     };
     _markApplied(client: any, { name, batch }?: {}): Promise<any>;
     /**
-     * Description placeholder
-     *
      * @async
      * @returns {unknown}
      */
@@ -57,8 +55,6 @@ declare class Migration {
     _getAppliedBatch(batch: any): Promise<any>;
     _unmarkApplied(client: any, id: any): Promise<any>;
     /**
-     * Description placeholder
-     *
      * @async
      * @returns {unknown}
      */

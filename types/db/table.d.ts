@@ -2,6 +2,14 @@ export = Table;
 import Column = require("./column.js");
 import Constraint = require("./constraint.js");
 import Index = require("./index.js");
+export type PLpgSQLTypes = import("./types/plpgsql.js");
+export type SQLiteSQLTypes = import("./types/sqlitesql.js");
+export type TSQLTypes = import("./types/tsql.js");
+/**
+ * @typedef {import("./types/plpgsql.js")} PLpgSQLTypes
+ * @typedef {import("./types/sqlitesql.js")} SQLiteSQLTypes
+ * @typedef {import("./types/tsql.js")} TSQLTypes
+ */
 declare class Table {
     dialect: any;
     /**@private*/ private _method;
@@ -17,27 +25,27 @@ declare class Table {
     /**
      *
      * @param {String} name
-     * @returns {import('./column.js').ColumnTypes}
+     * @returns {Column & PLpgSQLTypes & SQLiteSQLTypes & TSQLTypes}
      */
-    addColumn(name: string): import("./column.js").ColumnTypes;
+    addColumn(name: string): Column & PLpgSQLTypes & SQLiteSQLTypes & TSQLTypes;
     /**
      *
      * @param {String} name
-     * @returns {import('./column.js').ColumnTypes}
+     * @returns {Column & PLpgSQLTypes & SQLiteSQLTypes & TSQLTypes}
      */
-    column(name: string): import("./column.js").ColumnTypes;
+    column(name: string): Column & PLpgSQLTypes & SQLiteSQLTypes & TSQLTypes;
     /**
      *
      * @param {String} name
-     * @returns {import('./column.js').ColumnTypes}
+     * @returns {Column & PLpgSQLTypes & SQLiteSQLTypes & TSQLTypes}
      */
-    alterColumn(name: string): import("./column.js").ColumnTypes;
+    alterColumn(name: string): Column & PLpgSQLTypes & SQLiteSQLTypes & TSQLTypes;
     /**
      *
      * @param {String} name
-     * @returns {import('./column.js').ColumnTypes}
+     * @returns {Column & PLpgSQLTypes & SQLiteSQLTypes & TSQLTypes}
      */
-    dropColumn(name: string): import("./column.js").ColumnTypes;
+    dropColumn(name: string): Column & PLpgSQLTypes & SQLiteSQLTypes & TSQLTypes;
     addConstraint(name?: boolean): this;
     constraint(name?: boolean): this;
     dropConstraint(name?: boolean): this;

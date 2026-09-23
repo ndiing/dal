@@ -140,6 +140,5 @@ class Column {
     }
 }
 
-/**@typedef {Column & PLpgSQLTypes & SQLiteSQLTypes & TSQLTypes} ColumnTypes*/
 
 module.exports = Column;

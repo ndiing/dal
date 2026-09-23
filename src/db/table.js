@@ -2,6 +2,13 @@ const Column = require("./column.js");
 const Constraint = require("./constraint.js");
 const Index = require("./index.js");
 
+/**
+ * @typedef {import("./types/plpgsql.js")} PLpgSQLTypes
+ * @typedef {import("./types/sqlitesql.js")} SQLiteSQLTypes
+ * @typedef {import("./types/tsql.js")} TSQLTypes
+ */
+
+
 class Table {
     /**@private*/ _method = null;
     /**@private*/ _name = null;
@@ -25,7 +32,7 @@ class Table {
     /**
      *
      * @param {String} name
-     * @returns {import('./column.js').ColumnTypes}
+     * @returns {Column & PLpgSQLTypes & SQLiteSQLTypes & TSQLTypes}
      */
     addColumn(name) {
         const method = this._method === "CREATE" ? null : "ADD";
@@ -37,7 +44,7 @@ class Table {
     /**
      *
      * @param {String} name
-     * @returns {import('./column.js').ColumnTypes}
+     * @returns {Column & PLpgSQLTypes & SQLiteSQLTypes & TSQLTypes}
      */
     column(name) {
         return this.addColumn(name);
@@ -46,7 +53,7 @@ class Table {
     /**
      *
      * @param {String} name
-     * @returns {import('./column.js').ColumnTypes}
+     * @returns {Column & PLpgSQLTypes & SQLiteSQLTypes & TSQLTypes}
      */
     alterColumn(name) {
         const column = new Column(this._name, "ALTER", name, this.dialect);
@@ -57,7 +64,7 @@ class Table {
     /**
      *
      * @param {String} name
-     * @returns {import('./column.js').ColumnTypes}
+     * @returns {Column & PLpgSQLTypes & SQLiteSQLTypes & TSQLTypes}
      */
     dropColumn(name) {
         const column = new Column(this._name, "DROP", name, this.dialect);

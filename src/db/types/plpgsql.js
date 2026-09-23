@@ -1,4 +1,4 @@
-/**@typedef {import("../column.js").ColumnTypes} Column*/
+/**@typedef {import("../column.js")} Column*/
 
 const PLpgSQLTypes = {
     /**@returns {Column}*/ bigInt: () => ({ type: "BIGINT" }),

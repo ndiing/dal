@@ -1,4 +1,3 @@
-/**@typedef {Column & PLpgSQLTypes & SQLiteSQLTypes & TSQLTypes} ColumnTypes*/
 export = Column;
 import Constraint = require("./constraint.js");
 declare class Column {
@@ -52,5 +51,4 @@ declare class Column {
     orCheckNot(column: string | Constraint.ConstraintCallback, operator: string, value: string | Constraint.ConstraintCallback): this;
     references(table: any, ...columns: any[]): this;
 }
-export type ColumnTypes = Column & PLpgSQLTypes & SQLiteSQLTypes & TSQLTypes;
 //# sourceMappingURL=column.d.ts.map
