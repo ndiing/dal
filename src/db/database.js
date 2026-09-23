@@ -114,7 +114,7 @@ class Database {
         return this.client.execute(query, params);
     }
 
-    /**@type {import("./client.js").TransactionCallback}*/
+    /**@type {import("./client.js")['transaction']}*/
     async transaction(callback) {
         return this.client.transaction(callback);
     }
