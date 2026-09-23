@@ -2,14 +2,6 @@ export = Table;
 import Column = require("./column.js");
 import Constraint = require("./constraint.js");
 import Index = require("./index.js");
-export type PLpgSQLTypes = import("./types/plpgsql.js");
-export type SQLiteSQLTypes = import("./types/sqlitesql.js");
-export type TSQLTypes = import("./types/tsql.js");
-/**
- * @typedef {import("./types/plpgsql.js")} PLpgSQLTypes
- * @typedef {import("./types/sqlitesql.js")} SQLiteSQLTypes
- * @typedef {import("./types/tsql.js")} TSQLTypes
- */
 declare class Table {
     dialect: any;
     /**@private*/ private _method;
@@ -25,27 +17,27 @@ declare class Table {
     /**
      *
      * @param {String} name
-     * @returns {Column & PLpgSQLTypes & SQLiteSQLTypes & TSQLTypes}
+     * @returns {Column & Column.PLpgSQLTypes & Column.SQLiteSQLTypes & Column.TSQLTypes}
      */
-    addColumn(name: string): Column & PLpgSQLTypes & SQLiteSQLTypes & TSQLTypes;
+    addColumn(name: string): Column & Column.PLpgSQLTypes & Column.SQLiteSQLTypes & Column.TSQLTypes;
     /**
      *
      * @param {String} name
-     * @returns {Column & PLpgSQLTypes & SQLiteSQLTypes & TSQLTypes}
+     * @returns {Column & Column.PLpgSQLTypes & Column.SQLiteSQLTypes & Column.TSQLTypes}
      */
-    column(name: string): Column & PLpgSQLTypes & SQLiteSQLTypes & TSQLTypes;
+    column(name: string): Column & Column.PLpgSQLTypes & Column.SQLiteSQLTypes & Column.TSQLTypes;
     /**
      *
      * @param {String} name
-     * @returns {Column & PLpgSQLTypes & SQLiteSQLTypes & TSQLTypes}
+     * @returns {Column & Column.PLpgSQLTypes & Column.SQLiteSQLTypes & Column.TSQLTypes}
      */
-    alterColumn(name: string): Column & PLpgSQLTypes & SQLiteSQLTypes & TSQLTypes;
+    alterColumn(name: string): Column & Column.PLpgSQLTypes & Column.SQLiteSQLTypes & Column.TSQLTypes;
     /**
      *
      * @param {String} name
-     * @returns {Column & PLpgSQLTypes & SQLiteSQLTypes & TSQLTypes}
+     * @returns {Column & Column.PLpgSQLTypes & Column.SQLiteSQLTypes & Column.TSQLTypes}
      */
-    dropColumn(name: string): Column & PLpgSQLTypes & SQLiteSQLTypes & TSQLTypes;
+    dropColumn(name: string): Column & Column.PLpgSQLTypes & Column.SQLiteSQLTypes & Column.TSQLTypes;
     addConstraint(name?: boolean): this;
     constraint(name?: boolean): this;
     dropConstraint(name?: boolean): this;

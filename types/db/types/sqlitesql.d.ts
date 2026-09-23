@@ -1,33 +1,93 @@
-/**@typedef {import("../column.js")} Column*/
 export = SQLiteSQLTypes;
-export type Column = import("../column.js");
 declare const SQLiteSQLTypes: {
-    /**@returns {Column}*/ int: () => Column;
-    /**@returns {Column}*/ tinyInt: () => Column;
-    /**@returns {Column}*/ smallInt: () => Column;
-    /**@returns {Column}*/ mediumint: () => Column;
-    /**@returns {Column}*/ bigInt: () => Column;
-    /**@returns {Column}*/ unsignedBigInt: () => Column;
-    /**@returns {Column}*/ int2: () => Column;
-    /**@returns {Column}*/ int8: () => Column;
-    /**@returns {Column}*/ character: (n: any) => Column;
-    /**@returns {Column}*/ varChar: (n: any) => Column;
-    /**@returns {Column}*/ varyingCharacter: (n: any) => Column;
-    /**@returns {Column}*/ nChar: (n: any) => Column;
-    /**@returns {Column}*/ nativeCharacter: (n: any) => Column;
-    /**@returns {Column}*/ nVarChar: (n: any) => Column;
-    /**@returns {Column}*/ clob: () => Column;
-    /**@returns {Column}*/ double: () => Column;
-    /**@returns {Column}*/ doublePrecision: () => Column;
-    /**@returns {Column}*/ float: () => Column;
-    /**@returns {Column}*/ decimal: (p: any, s: any) => Column;
-    /**@returns {Column}*/ boolean: () => Column;
-    /**@returns {Column}*/ date: () => Column;
-    /**@returns {Column}*/ dateTime: () => Column;
-    /**@returns {Column}*/ integer: () => Column;
-    /**@returns {Column}*/ text: () => Column;
-    /**@returns {Column}*/ blob: () => Column;
-    /**@returns {Column}*/ real: () => Column;
-    /**@returns {Column}*/ numeric: () => Column;
+    int: () => {
+        type: string;
+    };
+    tinyInt: () => {
+        type: string;
+    };
+    smallInt: () => {
+        type: string;
+    };
+    mediumint: () => {
+        type: string;
+    };
+    bigInt: () => {
+        type: string;
+    };
+    unsignedBigInt: () => {
+        type: string;
+    };
+    int2: () => {
+        type: string;
+    };
+    int8: () => {
+        type: string;
+    };
+    character: (n: any) => {
+        type: string;
+        n: any;
+    };
+    varChar: (n: any) => {
+        type: string;
+        n: any;
+    };
+    varyingCharacter: (n: any) => {
+        type: string;
+        n: any;
+    };
+    nChar: (n: any) => {
+        type: string;
+        n: any;
+    };
+    nativeCharacter: (n: any) => {
+        type: string;
+        n: any;
+    };
+    nVarChar: (n: any) => {
+        type: string;
+        n: any;
+    };
+    clob: () => {
+        type: string;
+    };
+    double: () => {
+        type: string;
+    };
+    doublePrecision: () => {
+        type: string;
+    };
+    float: () => {
+        type: string;
+    };
+    decimal: (p: any, s: any) => {
+        type: string;
+        p: any;
+        s: any;
+    };
+    boolean: () => {
+        type: string;
+    };
+    date: () => {
+        type: string;
+    };
+    dateTime: () => {
+        type: string;
+    };
+    integer: () => {
+        type: string;
+    };
+    text: () => {
+        type: string;
+    };
+    blob: () => {
+        type: string;
+    };
+    real: () => {
+        type: string;
+    };
+    numeric: () => {
+        type: string;
+    };
 };
 //# sourceMappingURL=sqlitesql.d.ts.map

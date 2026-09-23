@@ -1,79 +1,264 @@
-/**@typedef {import("../column.js")} Column*/
 export = PLpgSQLTypes;
-export type Column = import("../column.js");
 declare const PLpgSQLTypes: {
-    /**@returns {Column}*/ bigInt: () => Column;
-    /**@returns {Column}*/ int8: () => Column;
-    /**@returns {Column}*/ bigserial: () => Column;
-    /**@returns {Column}*/ serial8: () => Column;
-    /**@returns {Column}*/ bit: (n: any) => Column;
-    /**@returns {Column}*/ bitVarying: (n: any) => Column;
-    /**@returns {Column}*/ varBit: (n: any) => Column;
-    /**@returns {Column}*/ boolean: () => Column;
-    /**@returns {Column}*/ bool: () => Column;
-    /**@returns {Column}*/ box: () => Column;
-    /**@returns {Column}*/ bytea: () => Column;
-    /**@returns {Column}*/ character: (n: any) => Column;
-    /**@returns {Column}*/ char: (n: any) => Column;
-    /**@returns {Column}*/ characterVarying: (n: any) => Column;
-    /**@returns {Column}*/ varChar: (n: any) => Column;
-    /**@returns {Column}*/ cidr: () => Column;
-    /**@returns {Column}*/ circle: () => Column;
-    /**@returns {Column}*/ date: () => Column;
-    /**@returns {Column}*/ doublePrecision: () => Column;
-    /**@returns {Column}*/ float: () => Column;
-    /**@returns {Column}*/ float8: () => Column;
-    /**@returns {Column}*/ inet: () => Column;
-    /**@returns {Column}*/ integer: () => Column;
-    /**@returns {Column}*/ int: () => Column;
-    /**@returns {Column}*/ int4: () => Column;
-    /**@returns {Column}*/ interval: () => Column;
-    /**@returns {Column}*/ intervalYear: (p: any) => Column;
-    /**@returns {Column}*/ intervalMonth: (p: any) => Column;
-    /**@returns {Column}*/ intervalDay: (p: any) => Column;
-    /**@returns {Column}*/ intervalHour: (p: any) => Column;
-    /**@returns {Column}*/ intervalMinute: (p: any) => Column;
-    /**@returns {Column}*/ intervalSecond: (p: any) => Column;
-    /**@returns {Column}*/ intervalYearToMonth: (p: any) => Column;
-    /**@returns {Column}*/ intervalDayToHour: (p: any) => Column;
-    /**@returns {Column}*/ intervalDayToMinute: (p: any) => Column;
-    /**@returns {Column}*/ intervalDayToSecond: (p: any) => Column;
-    /**@returns {Column}*/ intervalHourToMinute: (p: any) => Column;
-    /**@returns {Column}*/ intervalHourToSecond: (p: any) => Column;
-    /**@returns {Column}*/ intervalMinuteToSecond: (p: any) => Column;
-    /**@returns {Column}*/ json: () => Column;
-    /**@returns {Column}*/ jsonb: () => Column;
-    /**@returns {Column}*/ line: () => Column;
-    /**@returns {Column}*/ lseg: () => Column;
-    /**@returns {Column}*/ macaddr: () => Column;
-    /**@returns {Column}*/ macaddr8: () => Column;
-    /**@returns {Column}*/ money: () => Column;
-    /**@returns {Column}*/ numeric: (p: any, s: any) => Column;
-    /**@returns {Column}*/ decimal: (p: any, s: any) => Column;
-    /**@returns {Column}*/ path: () => Column;
-    /**@returns {Column}*/ pgLsn: () => Column;
-    /**@returns {Column}*/ pgSnapshot: () => Column;
-    /**@returns {Column}*/ point: () => Column;
-    /**@returns {Column}*/ polygon: () => Column;
-    /**@returns {Column}*/ real: () => Column;
-    /**@returns {Column}*/ float4: () => Column;
-    /**@returns {Column}*/ smallInt: () => Column;
-    /**@returns {Column}*/ int2: () => Column;
-    /**@returns {Column}*/ smallserial: () => Column;
-    /**@returns {Column}*/ serial2: () => Column;
-    /**@returns {Column}*/ serial: () => Column;
-    /**@returns {Column}*/ serial4: () => Column;
-    /**@returns {Column}*/ text: () => Column;
-    /**@returns {Column}*/ time: (p: any) => Column;
-    /**@returns {Column}*/ timeWithTimeZone: (p: any) => Column;
-    /**@returns {Column}*/ timetz: () => Column;
-    /**@returns {Column}*/ timestamp: (p: any) => Column;
-    /**@returns {Column}*/ timestampWithTimeZone: (p: any) => Column;
-    /**@returns {Column}*/ timestamptz: () => Column;
-    /**@returns {Column}*/ tsquery: () => Column;
-    /**@returns {Column}*/ tsvector: () => Column;
-    /**@returns {Column}*/ txidSnapshot: () => Column;
-    /**@returns {Column}*/ uuid: () => Column;
-    /**@returns {Column}*/ xml: () => Column;
+    bigInt: () => {
+        type: string;
+    };
+    int8: () => {
+        type: string;
+    };
+    bigserial: () => {
+        type: string;
+    };
+    serial8: () => {
+        type: string;
+    };
+    bit: (n: any) => {
+        type: string;
+        n: any;
+    };
+    bitVarying: (n: any) => {
+        type: string;
+        n: any;
+    };
+    varBit: (n: any) => {
+        type: string;
+        n: any;
+    };
+    boolean: () => {
+        type: string;
+    };
+    bool: () => {
+        type: string;
+    };
+    box: () => {
+        type: string;
+    };
+    bytea: () => {
+        type: string;
+    };
+    character: (n: any) => {
+        type: string;
+        n: any;
+    };
+    char: (n: any) => {
+        type: string;
+        n: any;
+    };
+    characterVarying: (n: any) => {
+        type: string;
+        n: any;
+    };
+    varChar: (n: any) => {
+        type: string;
+        n: any;
+    };
+    cidr: () => {
+        type: string;
+    };
+    circle: () => {
+        type: string;
+    };
+    date: () => {
+        type: string;
+    };
+    doublePrecision: () => {
+        type: string;
+    };
+    float: () => {
+        type: string;
+    };
+    float8: () => {
+        type: string;
+    };
+    inet: () => {
+        type: string;
+    };
+    integer: () => {
+        type: string;
+    };
+    int: () => {
+        type: string;
+    };
+    int4: () => {
+        type: string;
+    };
+    interval: () => {
+        type: string;
+    };
+    intervalYear: (p: any) => {
+        type: string;
+        fields: string;
+        p: any;
+    };
+    intervalMonth: (p: any) => {
+        type: string;
+        fields: string;
+        p: any;
+    };
+    intervalDay: (p: any) => {
+        type: string;
+        fields: string;
+        p: any;
+    };
+    intervalHour: (p: any) => {
+        type: string;
+        fields: string;
+        p: any;
+    };
+    intervalMinute: (p: any) => {
+        type: string;
+        fields: string;
+        p: any;
+    };
+    intervalSecond: (p: any) => {
+        type: string;
+        fields: string;
+        p: any;
+    };
+    intervalYearToMonth: (p: any) => {
+        type: string;
+        fields: string;
+        p: any;
+    };
+    intervalDayToHour: (p: any) => {
+        type: string;
+        fields: string;
+        p: any;
+    };
+    intervalDayToMinute: (p: any) => {
+        type: string;
+        fields: string;
+        p: any;
+    };
+    intervalDayToSecond: (p: any) => {
+        type: string;
+        fields: string;
+        p: any;
+    };
+    intervalHourToMinute: (p: any) => {
+        type: string;
+        fields: string;
+        p: any;
+    };
+    intervalHourToSecond: (p: any) => {
+        type: string;
+        fields: string;
+        p: any;
+    };
+    intervalMinuteToSecond: (p: any) => {
+        type: string;
+        fields: string;
+        p: any;
+    };
+    json: () => {
+        type: string;
+    };
+    jsonb: () => {
+        type: string;
+    };
+    line: () => {
+        type: string;
+    };
+    lseg: () => {
+        type: string;
+    };
+    macaddr: () => {
+        type: string;
+    };
+    macaddr8: () => {
+        type: string;
+    };
+    money: () => {
+        type: string;
+    };
+    numeric: (p: any, s: any) => {
+        type: string;
+        p: any;
+        s: any;
+    };
+    decimal: (p: any, s: any) => {
+        type: string;
+        p: any;
+        s: any;
+    };
+    path: () => {
+        type: string;
+    };
+    pgLsn: () => {
+        type: string;
+    };
+    pgSnapshot: () => {
+        type: string;
+    };
+    point: () => {
+        type: string;
+    };
+    polygon: () => {
+        type: string;
+    };
+    real: () => {
+        type: string;
+    };
+    float4: () => {
+        type: string;
+    };
+    smallInt: () => {
+        type: string;
+    };
+    int2: () => {
+        type: string;
+    };
+    smallserial: () => {
+        type: string;
+    };
+    serial2: () => {
+        type: string;
+    };
+    serial: () => {
+        type: string;
+    };
+    serial4: () => {
+        type: string;
+    };
+    text: () => {
+        type: string;
+    };
+    time: (p: any) => {
+        type: string;
+        p: any;
+    };
+    timeWithTimeZone: (p: any) => {
+        type: string;
+        p: any;
+    };
+    timetz: () => {
+        type: string;
+    };
+    timestamp: (p: any) => {
+        type: string;
+        p: any;
+    };
+    timestampWithTimeZone: (p: any) => {
+        type: string;
+        p: any;
+    };
+    timestamptz: () => {
+        type: string;
+    };
+    tsquery: () => {
+        type: string;
+    };
+    tsvector: () => {
+        type: string;
+    };
+    txidSnapshot: () => {
+        type: string;
+    };
+    uuid: () => {
+        type: string;
+    };
+    xml: () => {
+        type: string;
+    };
 };
 //# sourceMappingURL=plpgsql.d.ts.map
