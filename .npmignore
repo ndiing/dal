@@ -1,9 +1,10 @@
 dev/
 scripts/
-test/
-migrations/
-test.db
+tests/
 jest.config.js
 nodemon.json
 .prettierrc
-.gitattributes
+migrations
+test.db
+test.db-shm
+test.db-wal

@@ -30,7 +30,7 @@ class UserRepository extends Repository {
 
 const userRepo = new UserRepository(db);
 
-describe("repository-tsql", () => {
+describe("repository-plpgsql", () => {
     test("at least one test", () => {});
 
     beforeAll(async () => {

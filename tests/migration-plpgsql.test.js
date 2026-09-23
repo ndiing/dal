@@ -22,3 +22,5 @@ describe("migration-plpgsql", () => {
         await db.rollback(); //.then(console.log)
     });
 });
+
+

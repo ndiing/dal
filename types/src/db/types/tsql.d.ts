@@ -1,0 +1,38 @@
+/**@typedef {import("../column.js")} Column*/
+export = TSQLTypes;
+export type Column = import("../column.js");
+declare const TSQLTypes: {
+    /**@returns {Column}*/ varChar: (length: any) => Column;
+    /**@returns {Column}*/ nVarChar: (length: any) => Column;
+    /**@returns {Column}*/ text: () => Column;
+    /**@returns {Column}*/ int: () => Column;
+    /**@returns {Column}*/ bigInt: () => Column;
+    /**@returns {Column}*/ tinyInt: () => Column;
+    /**@returns {Column}*/ smallInt: () => Column;
+    /**@returns {Column}*/ bit: () => Column;
+    /**@returns {Column}*/ float: () => Column;
+    /**@returns {Column}*/ numeric: (precision: any, scale: any) => Column;
+    /**@returns {Column}*/ decimal: (precision: any, scale: any) => Column;
+    /**@returns {Column}*/ real: () => Column;
+    /**@returns {Column}*/ date: () => Column;
+    /**@returns {Column}*/ dateTime: () => Column;
+    /**@returns {Column}*/ dateTime2: (scale: any) => Column;
+    /**@returns {Column}*/ dateTimeOffset: (scale: any) => Column;
+    /**@returns {Column}*/ smallDateTime: () => Column;
+    /**@returns {Column}*/ time: (scale: any) => Column;
+    /**@returns {Column}*/ uniqueIdentifier: () => Column;
+    /**@returns {Column}*/ smallMoney: () => Column;
+    /**@returns {Column}*/ money: () => Column;
+    /**@returns {Column}*/ binary: (length: any) => Column;
+    /**@returns {Column}*/ varBinary: (length: any) => Column;
+    /**@returns {Column}*/ image: () => Column;
+    /**@returns {Column}*/ xml: () => Column;
+    /**@returns {Column}*/ char: (length: any) => Column;
+    /**@returns {Column}*/ nChar: (length: any) => Column;
+    /**@returns {Column}*/ nText: () => Column;
+    /**@returns {Column}*/ tvp: (tvpType: any) => Column;
+    /**@returns {Column}*/ udt: () => Column;
+    /**@returns {Column}*/ geography: () => Column;
+    /**@returns {Column}*/ geometry: () => Column;
+    /**@returns {Column}*/ variant: () => Column;
+};
