@@ -47,12 +47,10 @@ const Migrations = {
  * @property {Boolean} debug
  */
 
-/**@typedef {import("./client.js")} Client*/
-
 /**@template {keyof Driver} D*/
 
 class Database {
-    /**@type {Client} */
+    /**@type {import("./client.js")} */
     client = null;
 
     /**@param {Config<D>} config */
@@ -88,7 +86,7 @@ class Database {
         return this.client.raw(...arguments);
     }
 
-    /**@type {Client['query']}*/
+    /**@type {import("./client.js")['query']}*/
     query() {
         return this.client.query();
     }
@@ -118,7 +116,7 @@ class Database {
         return this.client.execute(query, params);
     }
 
-    /**@type {Client['transaction']}*/
+    /**@type {import("./client.js")['transaction']}*/
     async transaction(callback) {
         return this.client.transaction(callback);
     }

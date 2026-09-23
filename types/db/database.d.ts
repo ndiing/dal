@@ -15,7 +15,6 @@ export type Config<D extends keyof Driver> = {
     connection: Connection;
     debug: boolean;
 };
-export type Client = import("./client.js");
 /**
  * @typedef Driver
  * @property {"sqlitesql"} better-sqlite3
@@ -36,11 +35,10 @@ export type Client = import("./client.js");
  * @property {Connection} connection
  * @property {Boolean} debug
  */
-/**@typedef {import("./client.js")} Client*/
 /**@template {keyof Driver} D*/
 declare class Database<D extends keyof Driver> {
-    /**@type {Client} */
-    client: Client;
+    /**@type {import("./client.js")} */
+    client: import("./client.js");
     /**@param {Config<D>} config */
     constructor(config?: Config<D>);
     escapeLike(any: any): string;
