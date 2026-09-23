@@ -60,10 +60,7 @@ declare const SQLiteSQLTypes: {
     float: () => {
         type: string;
     };
-    decimal: (
-        p: any,
-        s: any,
-    ) => {
+    decimal: (p: any, s: any) => {
         type: string;
         p: any;
         s: any;

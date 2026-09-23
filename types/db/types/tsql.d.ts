@@ -29,18 +29,12 @@ declare const TSQLTypes: {
     float: () => {
         type: string;
     };
-    numeric: (
-        precision: any,
-        scale: any,
-    ) => {
+    numeric: (precision: any, scale: any) => {
         type: string;
         precision: any;
         scale: any;
     };
-    decimal: (
-        precision: any,
-        scale: any,
-    ) => {
+    decimal: (precision: any, scale: any) => {
         type: string;
         precision: any;
         scale: any;

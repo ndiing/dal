@@ -44,14 +44,12 @@ declare class Query extends Thenable {
     /**@private*/
     private _createReference;
     /**
-     *
      * @param {String} name
      * @param {QueryCallback} callback
      * @returns {this}
      */
     with(name: string, callback: QueryCallback): this;
     /**
-     *
      * @param {String} name
      * @param {QueryCallback} callback
      * @returns {this}
@@ -60,10 +58,9 @@ declare class Query extends Thenable {
     insert(table: any, columns?: null, values?: null): this;
     default(): this;
     onConflict(...columns: any[]): this;
-    doUpdate(): this;
+    doUpdate(...columns: any[]): this;
     doNothing(): this;
     /**
-     *
      * @param {String} table
      * @param {Object.<string, QueryCallback>} row
      * @returns {this}
@@ -71,13 +68,11 @@ declare class Query extends Thenable {
     update(table: string, row: Record<string, QueryCallback>): this;
     delete(table: any): this;
     /**
-     *
      * @param  {...(String|QueryCallback)} columns
      * @returns {this}
      */
     select(...columns: (string | QueryCallback)[]): this;
     /**
-     *
      * @param {String|QueryCallback} table
      * @returns {this}
      */
@@ -89,7 +84,6 @@ declare class Query extends Thenable {
     /**@private*/
     private _setJoin;
     /**
-     *
      * @param {String} table
      * @param {String|QueryCallback} column
      * @param {String} operator
@@ -98,7 +92,6 @@ declare class Query extends Thenable {
      */
     join(table: string, column: string | QueryCallback, operator: string, value: string | QueryCallback): this;
     /**
-     *
      * @param {String} table
      * @param {String|QueryCallback} column
      * @param {String} operator
@@ -107,7 +100,6 @@ declare class Query extends Thenable {
      */
     innerJoin(table: string, column: string | QueryCallback, operator: string, value: string | QueryCallback): this;
     /**
-     *
      * @param {String} table
      * @param {String|QueryCallback} column
      * @param {String} operator
@@ -116,13 +108,11 @@ declare class Query extends Thenable {
      */
     leftJoin(table: string, column: string | QueryCallback, operator: string, value: string | QueryCallback): this;
     /**
-     *
      * @param {String} table
      * @returns {this}
      */
     crossJoin(table: string): this;
     /**
-     *
      * @param {String} table
      * @param {String|QueryCallback} column
      * @param {String} operator
@@ -131,7 +121,6 @@ declare class Query extends Thenable {
      */
     rightJoin(table: string, column: string | QueryCallback, operator: string, value: string | QueryCallback): this;
     /**
-     *
      * @param {String} table
      * @param {String|QueryCallback} column
      * @param {String} operator
@@ -142,7 +131,6 @@ declare class Query extends Thenable {
     /**@private*/
     private _setOn;
     /**
-     *
      * @param {String|QueryCallback} column
      * @param {String} operator
      * @param {String|QueryCallback} value
@@ -150,7 +138,6 @@ declare class Query extends Thenable {
      */
     on(column: string | QueryCallback, operator: string, value: string | QueryCallback): this;
     /**
-     *
      * @param {String|QueryCallback} column
      * @param {String} operator
      * @param {String|QueryCallback} value
@@ -158,7 +145,6 @@ declare class Query extends Thenable {
      */
     onNot(column: string | QueryCallback, operator: string, value: string | QueryCallback): this;
     /**
-     *
      * @param {String|QueryCallback} column
      * @param {String} operator
      * @param {String|QueryCallback} value
@@ -166,7 +152,6 @@ declare class Query extends Thenable {
      */
     onExists(column: string | QueryCallback, operator: string, value: string | QueryCallback): this;
     /**
-     *
      * @param {String|QueryCallback} column
      * @param {String} operator
      * @param {String|QueryCallback} value
@@ -174,7 +159,6 @@ declare class Query extends Thenable {
      */
     onNotExists(column: string | QueryCallback, operator: string, value: string | QueryCallback): this;
     /**
-     *
      * @param {String|QueryCallback} column
      * @param {String} operator
      * @param {String|QueryCallback} value
@@ -182,7 +166,6 @@ declare class Query extends Thenable {
      */
     orOn(column: string | QueryCallback, operator: string, value: string | QueryCallback): this;
     /**
-     *
      * @param {String|QueryCallback} column
      * @param {String} operator
      * @param {String|QueryCallback} value
@@ -190,7 +173,6 @@ declare class Query extends Thenable {
      */
     orOnNot(column: string | QueryCallback, operator: string, value: string | QueryCallback): this;
     /**
-     *
      * @param {String|QueryCallback} column
      * @param {String} operator
      * @param {String|QueryCallback} value
@@ -198,7 +180,6 @@ declare class Query extends Thenable {
      */
     orOnExists(column: string | QueryCallback, operator: string, value: string | QueryCallback): this;
     /**
-     *
      * @param {String|QueryCallback} column
      * @param {String} operator
      * @param {String|QueryCallback} value
@@ -208,7 +189,6 @@ declare class Query extends Thenable {
     /**@private*/
     private _setWhere;
     /**
-     *
      * @param {String|QueryCallback} column
      * @param {String} operator
      * @param {String|QueryCallback} value
@@ -216,7 +196,6 @@ declare class Query extends Thenable {
      */
     where(column: string | QueryCallback, operator: string, value: string | QueryCallback): this;
     /**
-     *
      * @param {String|QueryCallback} column
      * @param {String} operator
      * @param {String|QueryCallback} value
@@ -224,7 +203,6 @@ declare class Query extends Thenable {
      */
     whereNot(column: string | QueryCallback, operator: string, value: string | QueryCallback): this;
     /**
-     *
      * @param {String|QueryCallback} column
      * @param {String} operator
      * @param {String|QueryCallback} value
@@ -232,7 +210,6 @@ declare class Query extends Thenable {
      */
     whereExists(column: string | QueryCallback, operator: string, value: string | QueryCallback): this;
     /**
-     *
      * @param {String|QueryCallback} column
      * @param {String} operator
      * @param {String|QueryCallback} value
@@ -240,7 +217,6 @@ declare class Query extends Thenable {
      */
     whereNotExists(column: string | QueryCallback, operator: string, value: string | QueryCallback): this;
     /**
-     *
      * @param {String|QueryCallback} column
      * @param {String} operator
      * @param {String|QueryCallback} value
@@ -248,7 +224,6 @@ declare class Query extends Thenable {
      */
     orWhere(column: string | QueryCallback, operator: string, value: string | QueryCallback): this;
     /**
-     *
      * @param {String|QueryCallback} column
      * @param {String} operator
      * @param {String|QueryCallback} value
@@ -256,7 +231,6 @@ declare class Query extends Thenable {
      */
     orWhereNot(column: string | QueryCallback, operator: string, value: string | QueryCallback): this;
     /**
-     *
      * @param {String|QueryCallback} column
      * @param {String} operator
      * @param {String|QueryCallback} value
@@ -264,7 +238,6 @@ declare class Query extends Thenable {
      */
     orWhereExists(column: string | QueryCallback, operator: string, value: string | QueryCallback): this;
     /**
-     *
      * @param {String|QueryCallback} column
      * @param {String} operator
      * @param {String|QueryCallback} value
@@ -275,7 +248,6 @@ declare class Query extends Thenable {
     /**@private*/
     private _setHaving;
     /**
-     *
      * @param {String|QueryCallback} column
      * @param {String} operator
      * @param {String|QueryCallback} value
@@ -283,7 +255,6 @@ declare class Query extends Thenable {
      */
     having(column: string | QueryCallback, operator: string, value: string | QueryCallback): this;
     /**
-     *
      * @param {String|QueryCallback} column
      * @param {String} operator
      * @param {String|QueryCallback} value
@@ -294,13 +265,11 @@ declare class Query extends Thenable {
     /**@private*/
     private _setUnion;
     /**
-     *
      * @param {QueryCallback} callback
      * @returns {this}
      */
     union(callback: QueryCallback): this;
     /**
-     *
      * @param {QueryCallback} callback
      * @returns {this}
      */
@@ -351,11 +320,9 @@ declare class Query extends Thenable {
     private _applyReturning;
     /**@private*/
     private _buildStatement;
-    build():
-        | never[]
-        | {
-              query: any;
-              params: null;
-          };
+    build(): never[] | {
+        query: any;
+        params: null;
+    };
 }
 //# sourceMappingURL=query.d.ts.map

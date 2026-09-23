@@ -1,6 +1,6 @@
 export = Raw;
 import Thenable = require("./thenable.js");
-import { isArray, isObject, isPlainObject, RAW, QUERY } from "./util.js";
+import { isArray, isPlainObject, RAW, QUERY } from "./util.js";
 declare class Raw extends Thenable {
     [RAW]: boolean;
     /**@private*/ private _query;
@@ -15,11 +15,9 @@ declare class Raw extends Thenable {
     private _setParams;
     /**@private*/
     private _buildRawQuery;
-    build():
-        | never[]
-        | {
-              query: null;
-              params: null;
-          };
+    build(): never[] | {
+        query: null;
+        params: null;
+    };
 }
 //# sourceMappingURL=raw.d.ts.map

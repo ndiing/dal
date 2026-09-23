@@ -171,18 +171,12 @@ declare const PLpgSQLTypes: {
     money: () => {
         type: string;
     };
-    numeric: (
-        p: any,
-        s: any,
-    ) => {
+    numeric: (p: any, s: any) => {
         type: string;
         p: any;
         s: any;
     };
-    decimal: (
-        p: any,
-        s: any,
-    ) => {
+    decimal: (p: any, s: any) => {
         type: string;
         p: any;
         s: any;

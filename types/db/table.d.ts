@@ -6,7 +6,11 @@ declare class Table {
     dialect: any;
     /**@private*/ private _method;
     /**@private*/ private _name;
-    /**@private*/ private _constraint;
+    /**
+     * @private
+     * @type {Constraint}
+     */
+    private _constraint;
     /**@type {Column[]}*/
     columns: Column[];
     /**@type {Constraint[]}*/
@@ -15,25 +19,21 @@ declare class Table {
     indexes: Index[];
     constructor(method: null | undefined, name: null | undefined, dialect: any);
     /**
-     *
      * @param {String} name
      * @returns {Column & Column.PLpgSQLTypes & Column.SQLiteSQLTypes & Column.TSQLTypes}
      */
     addColumn(name: string): Column & Column.PLpgSQLTypes & Column.SQLiteSQLTypes & Column.TSQLTypes;
     /**
-     *
      * @param {String} name
      * @returns {Column & Column.PLpgSQLTypes & Column.SQLiteSQLTypes & Column.TSQLTypes}
      */
     column(name: string): Column & Column.PLpgSQLTypes & Column.SQLiteSQLTypes & Column.TSQLTypes;
     /**
-     *
      * @param {String} name
      * @returns {Column & Column.PLpgSQLTypes & Column.SQLiteSQLTypes & Column.TSQLTypes}
      */
     alterColumn(name: string): Column & Column.PLpgSQLTypes & Column.SQLiteSQLTypes & Column.TSQLTypes;
     /**
-     *
      * @param {String} name
      * @returns {Column & Column.PLpgSQLTypes & Column.SQLiteSQLTypes & Column.TSQLTypes}
      */
