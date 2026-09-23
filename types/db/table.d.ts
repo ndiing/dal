@@ -2,14 +2,6 @@ export = Table;
 import Column = require("./column.js");
 import Constraint = require("./constraint.js");
 import Index = require("./index.js");
-export type PLpgSQLTypes = import('./types/plpgsql.js');
-export type SQLiteSQLTypes = import('./types/sqlitesql.js');
-export type TSQLTypes = import('./types/tsql.js');
-export type ColumnTypes = Column & PLpgSQLTypes & SQLiteSQLTypes & TSQLTypes;
-/**@typedef {import('./types/plpgsql.js')} PLpgSQLTypes*/
-/**@typedef {import('./types/sqlitesql.js')} SQLiteSQLTypes*/
-/**@typedef {import('./types/tsql.js')} TSQLTypes*/
-/**@typedef {Column & PLpgSQLTypes & SQLiteSQLTypes & TSQLTypes} ColumnTypes*/
 declare class Table {
     dialect: any;
     /**@private*/ private _method;
@@ -25,27 +17,27 @@ declare class Table {
     /**
      *
      * @param {String} name
-     * @returns {ColumnTypes}
+     * @returns {Column.ColumnTypes}
      */
-    addColumn(name: string): ColumnTypes;
+    addColumn(name: string): Column.ColumnTypes;
     /**
      *
      * @param {String} name
-     * @returns {ColumnTypes}
+     * @returns {Column.ColumnTypes}
      */
-    column(name: string): ColumnTypes;
+    column(name: string): Column.ColumnTypes;
     /**
      *
      * @param {String} name
-     * @returns {ColumnTypes}
+     * @returns {Column.ColumnTypes}
      */
-    alterColumn(name: string): ColumnTypes;
+    alterColumn(name: string): Column.ColumnTypes;
     /**
      *
      * @param {String} name
-     * @returns {ColumnTypes}
+     * @returns {Column.ColumnTypes}
      */
-    dropColumn(name: string): ColumnTypes;
+    dropColumn(name: string): Column.ColumnTypes;
     addConstraint(name?: boolean): this;
     constraint(name?: boolean): this;
     dropConstraint(name?: boolean): this;

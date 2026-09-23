@@ -1,6 +1,6 @@
-/**@typedef {import("../column.js")} Column*/
+/**@typedef {import("../column.js").ColumnTypes} Column*/
 export = TSQLTypes;
-export type Column = import("../column.js");
+export type Column = import("../column.js").ColumnTypes;
 declare const TSQLTypes: {
     /**@returns {Column}*/ varChar: (length: any) => Column;
     /**@returns {Column}*/ nVarChar: (length: any) => Column;

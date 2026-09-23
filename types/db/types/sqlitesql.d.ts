@@ -1,6 +1,6 @@
-/**@typedef {import("../column.js")} Column*/
+/**@typedef {import("../column.js").ColumnTypes} Column*/
 export = SQLiteSQLTypes;
-export type Column = import("../column.js");
+export type Column = import("../column.js").ColumnTypes;
 declare const SQLiteSQLTypes: {
     /**@returns {Column}*/ int: () => Column;
     /**@returns {Column}*/ tinyInt: () => Column;

@@ -1,6 +1,6 @@
-/**@typedef {import("../column.js")} Column*/
+/**@typedef {import("../column.js").ColumnTypes} Column*/
 export = PLpgSQLTypes;
-export type Column = import("../column.js");
+export type Column = import("../column.js").ColumnTypes;
 declare const PLpgSQLTypes: {
     /**@returns {Column}*/ bigInt: () => Column;
     /**@returns {Column}*/ int8: () => Column;

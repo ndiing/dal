@@ -1,4 +1,4 @@
-/**@typedef {import("../column.js")} Column*/
+/**@typedef {import("../column.js").ColumnTypes} Column*/
 
 const SQLiteSQLTypes = {
     /**@returns {Column}*/ int: () => ({ type: "INT" }),
