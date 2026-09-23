@@ -56,7 +56,6 @@ class Client {
         return new Query(this);
     }
 
-    
     /**@returns {Schema} */
     schema() {
         return new Schema(this);

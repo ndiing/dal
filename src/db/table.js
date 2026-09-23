@@ -25,7 +25,7 @@ class Table {
     /**
      *
      * @param {String} name
-     * @returns {Column.ColumnTypes}
+     * @returns {import('./column.js').ColumnTypes}
      */
     addColumn(name) {
         const method = this._method === "CREATE" ? null : "ADD";
@@ -37,7 +37,7 @@ class Table {
     /**
      *
      * @param {String} name
-     * @returns {Column.ColumnTypes}
+     * @returns {import('./column.js').ColumnTypes}
      */
     column(name) {
         return this.addColumn(name);
@@ -46,7 +46,7 @@ class Table {
     /**
      *
      * @param {String} name
-     * @returns {Column.ColumnTypes}
+     * @returns {import('./column.js').ColumnTypes}
      */
     alterColumn(name) {
         const column = new Column(this._name, "ALTER", name, this.dialect);
@@ -57,7 +57,7 @@ class Table {
     /**
      *
      * @param {String} name
-     * @returns {Column.ColumnTypes}
+     * @returns {import('./column.js').ColumnTypes}
      */
     dropColumn(name) {
         const column = new Column(this._name, "DROP", name, this.dialect);

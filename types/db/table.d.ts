@@ -17,27 +17,27 @@ declare class Table {
     /**
      *
      * @param {String} name
-     * @returns {Column.ColumnTypes}
+     * @returns {import('./column.js').ColumnTypes}
      */
-    addColumn(name: string): Column.ColumnTypes;
+    addColumn(name: string): import('./column.js').ColumnTypes;
     /**
      *
      * @param {String} name
-     * @returns {Column.ColumnTypes}
+     * @returns {import('./column.js').ColumnTypes}
      */
-    column(name: string): Column.ColumnTypes;
+    column(name: string): import('./column.js').ColumnTypes;
     /**
      *
      * @param {String} name
-     * @returns {Column.ColumnTypes}
+     * @returns {import('./column.js').ColumnTypes}
      */
-    alterColumn(name: string): Column.ColumnTypes;
+    alterColumn(name: string): import('./column.js').ColumnTypes;
     /**
      *
      * @param {String} name
-     * @returns {Column.ColumnTypes}
+     * @returns {import('./column.js').ColumnTypes}
      */
-    dropColumn(name: string): Column.ColumnTypes;
+    dropColumn(name: string): import('./column.js').ColumnTypes;
     addConstraint(name?: boolean): this;
     constraint(name?: boolean): this;
     dropConstraint(name?: boolean): this;

@@ -50,5 +50,10 @@ declare class Database {
     connect(): Promise<void>;
     close(): Promise<void>;
     execute(query: any, params: any): Promise<void>;
+    /**
+     * @param {import("./client.js").TransactionCallback} callback
+     * @returns {import("./client.js")}
+     */
+    transaction(callback: import("./client.js").TransactionCallback): import("./client.js");
 }
 //# sourceMappingURL=database.d.ts.map

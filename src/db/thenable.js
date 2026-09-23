@@ -32,13 +32,12 @@ class Thenable {
         return this;
     }
 
-    
     /**
      * Description placeholder
      *
-     * @param {*} onfulfilled 
-     * @param {*} onrejected 
-     * @returns {*} 
+     * @param {*} onfulfilled
+     * @param {*} onrejected
+     * @returns {*}
      */
     then(onfulfilled, onrejected) {
         const { query, params } = this.build();
@@ -50,23 +49,21 @@ class Thenable {
             .then(onfulfilled, onrejected);
     }
 
-    
     /**
      * Description placeholder
      *
-     * @param {*} onrejected 
-     * @returns {*} 
+     * @param {*} onrejected
+     * @returns {*}
      */
     catch(onrejected) {
         return this.then(null, onrejected);
     }
 
-    
     /**
      * Description placeholder
      *
-     * @param {*} onfinally 
-     * @returns {*} 
+     * @param {*} onfinally
+     * @returns {*}
      */
     finally(onfinally) {
         return this.then(

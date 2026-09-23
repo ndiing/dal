@@ -7,8 +7,8 @@ const db = new Database({
     },
 });
 
-db.transaction(client=>{
-})
+// db.transaction(c=>{
+// })
 
 describe("schema-plpgsql", () => {
     test("inline constraint", () => {

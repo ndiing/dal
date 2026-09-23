@@ -29,7 +29,6 @@ const Migrations = {
     plpgsql: PLpgSQLMigration,
 };
 
-
 /**
  * @typedef Connection
  * @property {String} user
@@ -45,7 +44,6 @@ const Migrations = {
  * @property {Boolean} debug
  */
 
-
 class Database {
     /**@type {import("./client.js")} */
     client = null;
@@ -55,12 +53,12 @@ class Database {
         const { client, connection, migrations, debug } = config;
         const dialect = Dialects[client];
         this.client = new Clients[client](connection, dialect, !!debug);
-        Object.defineProperty(this,'_migration',{
+        Object.defineProperty(this, "_migration", {
             value: new Migrations[dialect](this.client, migrations),
-            configurable:true,
-            enumerable:false,
-            writable:true
-        })
+            configurable: true,
+            enumerable: false,
+            writable: true,
+        });
     }
 
     escapeLike(any) {
@@ -114,7 +112,10 @@ class Database {
         return this.client.execute(query, params);
     }
 
-    /**@type {import("./client.js")['transaction']}*/
+    /**
+     * @param {import("./client.js").TransactionCallback} callback 
+     * @returns {import("./client.js")}
+     */
     async transaction(callback) {
         return this.client.transaction(callback);
     }

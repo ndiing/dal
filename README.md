@@ -4,11 +4,11 @@ A lightweight, chainable SQL query builder, schema builder, migration runner, an
 
 One API, three databases:
 
-| Driver           | `client` value   | Dialect    |
-| ---------------- | ---------------- | ---------- |
-| SQLite           | `better-sqlite3` | `sqlitesql` |
-| PostgreSQL       | `pg`             | `plpgsql`   |
-| SQL Server       | `mssql`          | `tsql`      |
+| Driver     | `client` value   | Dialect     |
+| ---------- | ---------------- | ----------- |
+| SQLite     | `better-sqlite3` | `sqlitesql` |
+| PostgreSQL | `pg`             | `plpgsql`   |
+| SQL Server | `mssql`          | `tsql`      |
 
 ## Features
 
@@ -90,7 +90,7 @@ new Database({
 ### Select
 
 ```js
-await db.query().select().from("users");                       // SELECT *
+await db.query().select().from("users"); // SELECT *
 await db.query().select("id", "name").from("users");
 await db.query().select().from("users").where("id", 1).first(); // single row or null
 ```
@@ -98,13 +98,7 @@ await db.query().select().from("users").where("id", 1).first(); // single row or
 ### Where
 
 ```js
-db.query()
-    .select()
-    .from("users")
-    .where("age", ">=", 18)
-    .whereNot("role", "banned")
-    .orWhere("role", "admin")
-    .whereExists(/* ... */);
+db.query().select().from("users").where("age", ">=", 18).whereNot("role", "banned").orWhere("role", "admin").whereExists(/* ... */);
 
 // Grouping with a callback
 db.query()
@@ -120,10 +114,7 @@ Available: `where`, `whereNot`, `whereExists`, `whereNotExists`, and their `or*`
 ### Joins
 
 ```js
-db.query()
-    .select("u.name", "o.total")
-    .from("users u")
-    .leftJoin("orders o", "o.user_id", "=", "u.id");
+db.query().select("u.name", "o.total").from("users u").leftJoin("orders o", "o.user_id", "=", "u.id");
 ```
 
 Available: `join`, `innerJoin`, `leftJoin`, `rightJoin`, `fullOuterJoin`, `crossJoin`, plus `on`, `orOn`, and their `Not` / `Exists` variants for multi-condition joins.
@@ -135,7 +126,10 @@ Available: `join`, `innerJoin`, `leftJoin`, `rightJoin`, `fullOuterJoin`, `cross
 await db.query().insert("users", { name: "Ndiing", email: "a@b.com" }).returning();
 
 // Multiple rows
-await db.query().insert("users", [{ name: "A" }, { name: "B" }]).returning();
+await db
+    .query()
+    .insert("users", [{ name: "A" }, { name: "B" }])
+    .returning();
 
 // Upsert
 await db.query().insert("users", { email: "a@b.com", name: "New" }).onConflict("email").doUpdate().returning();
@@ -152,12 +146,12 @@ await db.query().delete("users").where("id", 1).returning();
 
 Chain these to shape the result:
 
-| Method          | Returns                          |
-| --------------- | -------------------------------- |
-| `.first(col?)`  | first row, or a single column value |
-| `.pluck(col)`   | array of one column's values     |
-| `.count()`      | number of rows returned          |
-| `.exists()`     | `true` if any row was returned   |
+| Method         | Returns                             |
+| -------------- | ----------------------------------- |
+| `.first(col?)` | first row, or a single column value |
+| `.pluck(col)`  | array of one column's values        |
+| `.count()`     | number of rows returned             |
+| `.exists()`    | `true` if any row was returned      |
 
 ### Grouping, ordering, pagination, unions, CTEs
 
@@ -186,7 +180,9 @@ await db.raw("SELECT * FROM users WHERE id = ?", 1);
 await db.raw("SELECT ?? FROM users WHERE role = ?role", { role: "admin" });
 
 // Use raw expressions inside builders
-db.query().update("users", { updated_at: db.raw("CURRENT_TIMESTAMP") }).where("id", 1);
+db.query()
+    .update("users", { updated_at: db.raw("CURRENT_TIMESTAMP") })
+    .where("id", 1);
 
 // Or run a statement directly
 await db.execute("DELETE FROM sessions WHERE expired = @expired", { expired: 1 });
@@ -263,8 +259,8 @@ exports.down = ({ schema }) => {
 Run them:
 
 ```js
-await db.migrate();   // apply all pending migrations as one batch
-await db.rollback();  // revert the last batch
+await db.migrate(); // apply all pending migrations as one batch
+await db.rollback(); // revert the last batch
 ```
 
 Applied migrations are tracked in a `migrations` table (configurable via `migrations.tableName`). `migrate()` and `rollback()` each run in a single transaction.
@@ -309,8 +305,8 @@ const { rows, meta } = await users.getAll({
 // meta: { page, limit, offset, prev, next, start, end }
 
 await users.update(1, { name: "New" });
-await users.delete(1);   // soft delete if `softDelete` is set
-await users.restore(1);  // only available with `softDelete`
+await users.delete(1); // soft delete if `softDelete` is set
+await users.restore(1); // only available with `softDelete`
 ```
 
 Filters and sorters are validated against `columns`, so unknown columns, unsupported operators, and invalid sort directions throw before any SQL runs.

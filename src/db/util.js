@@ -23,17 +23,17 @@ const DRIVERS = {
     mssql: () => require("mssql/msnodesqlv8"),
     pg: () => require("pg"),
 };
-const driverMap=new Map()
+const driverMap = new Map();
 /**
  * @param {keyof typeof DRIVERS} driver
  * @returns {ReturnType<typeof DRIVERS[keyof typeof DRIVERS]>}
  */
 const requireDriver = (driver) => {
-    if(!driverMap.has(driver)){
-        driverMap.set(driver,DRIVERS[driver]())
+    if (!driverMap.has(driver)) {
+        driverMap.set(driver, DRIVERS[driver]());
     }
-    return driverMap.get(driver)
-}
+    return driverMap.get(driver);
+};
 
 module.exports = {
     isObject,

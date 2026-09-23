@@ -16,7 +16,6 @@ const { isString, isBoolean, isNumber, RAW, CONSTRAINT, TABLE } = require("./uti
  * @param {String|import('./constraint.js').ConstraintCallback} value
  */
 
-
 class Schema extends Thenable {
     /**@type {Table[]}*/
     tables = [];
@@ -435,13 +434,12 @@ class Schema extends Thenable {
         return arr;
     }
 
-    
     /**
      * Description placeholder
      *
-     * @param {*} onfulfilled 
-     * @param {*} onrejected 
-     * @returns {*} 
+     * @param {*} onfulfilled
+     * @param {*} onrejected
+     * @returns {*}
      */
     then(onfulfilled, onrejected) {
         return Promise.resolve(

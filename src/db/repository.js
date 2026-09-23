@@ -63,7 +63,6 @@ const OPERATORS = new Set([
 
 const DIRECTIONS = new Set(["ASC", "DESC"]);
 
-
 class Repository {
     /**@type {import("./database.js")}*/
     db = null;
