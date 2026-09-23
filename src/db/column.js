@@ -93,25 +93,45 @@ class Column {
         return this;
     }
 
-    /**@type {Constraint["check"]}*/
+    /**
+     * @param {String|Constraint.ConstraintCallback} column
+     * @param {String} operator
+     * @param {String|Constraint.ConstraintCallback} value
+     * @returns {this}
+     */
     check(column, operator, value) {
         this._constraint.check(column, operator, value);
         return this;
     }
 
-    /**@type {Constraint["checkNot"]}*/
+    /**
+     * @param {String|Constraint.ConstraintCallback} column
+     * @param {String} operator
+     * @param {String|Constraint.ConstraintCallback} value
+     * @returns {this}
+     */
     checkNot(column, operator, value) {
         this._constraint.checkNot(column, operator, value);
         return this;
     }
 
-    /**@type {Constraint["orCheck"]}*/
+    /**
+     * @param {String|Constraint.ConstraintCallback} column
+     * @param {String} operator
+     * @param {String|Constraint.ConstraintCallback} value
+     * @returns {this}
+     */
     orCheck(column, operator, value) {
         this._constraint.orCheck(column, operator, value);
         return this;
     }
 
-    /**@type {Constraint["orCheckNot"]}*/
+    /**
+     * @param {String|Constraint.ConstraintCallback} column
+     * @param {String} operator
+     * @param {String|Constraint.ConstraintCallback} value
+     * @returns {this}
+     */
     orCheckNot(column, operator, value) {
         this._constraint.orCheckNot(column, operator, value);
         return this;

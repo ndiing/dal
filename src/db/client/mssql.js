@@ -81,7 +81,6 @@ class MssqlClient extends Client {
         return { changes: rowsAffected?.[0] || 0 };
     }
 
-    /**@type {Client['transaction']}*/
     async transaction(callback) {
         if (this.nested) {
             return await callback(this);

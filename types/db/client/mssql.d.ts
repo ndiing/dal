@@ -12,5 +12,6 @@ declare class MssqlClient extends Client {
     close(): Promise<void>;
     isReader(query: any): boolean;
     execute(query: any, params?: {}): Promise<any>;
+    transaction(callback: any): Promise<any>;
 }
 //# sourceMappingURL=mssql.d.ts.map

@@ -23,6 +23,34 @@ declare class Column {
     unique(): this;
     primaryKey(): this;
     default(value: any): this;
+    /**
+     * @param {String|Constraint.ConstraintCallback} column
+     * @param {String} operator
+     * @param {String|Constraint.ConstraintCallback} value
+     * @returns {this}
+     */
+    check(column: string | Constraint.ConstraintCallback, operator: string, value: string | Constraint.ConstraintCallback): this;
+    /**
+     * @param {String|Constraint.ConstraintCallback} column
+     * @param {String} operator
+     * @param {String|Constraint.ConstraintCallback} value
+     * @returns {this}
+     */
+    checkNot(column: string | Constraint.ConstraintCallback, operator: string, value: string | Constraint.ConstraintCallback): this;
+    /**
+     * @param {String|Constraint.ConstraintCallback} column
+     * @param {String} operator
+     * @param {String|Constraint.ConstraintCallback} value
+     * @returns {this}
+     */
+    orCheck(column: string | Constraint.ConstraintCallback, operator: string, value: string | Constraint.ConstraintCallback): this;
+    /**
+     * @param {String|Constraint.ConstraintCallback} column
+     * @param {String} operator
+     * @param {String|Constraint.ConstraintCallback} value
+     * @returns {this}
+     */
+    orCheckNot(column: string | Constraint.ConstraintCallback, operator: string, value: string | Constraint.ConstraintCallback): this;
     references(table: any, ...columns: any[]): this;
 }
 //# sourceMappingURL=column.d.ts.map

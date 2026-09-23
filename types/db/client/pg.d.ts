@@ -18,5 +18,6 @@ declare class PgClient extends Client {
     rollback(): Promise<void>;
     isReader(command: any, rows: any): boolean;
     execute(query: any, params?: any[]): Promise<any>;
+    transaction(callback: any): Promise<any>;
 }
 //# sourceMappingURL=pg.d.ts.map

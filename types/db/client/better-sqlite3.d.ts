@@ -16,5 +16,6 @@ declare class BetterSqlite3Client extends Client {
     begin(): Promise<void>;
     commit(): Promise<void>;
     rollback(): Promise<void>;
+    transaction(callback: any): Promise<any>;
 }
 //# sourceMappingURL=better-sqlite3.d.ts.map

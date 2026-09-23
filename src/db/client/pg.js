@@ -85,7 +85,6 @@ class PgClient extends Client {
         return { changes: rowCount || 0 };
     }
 
-    /**@type {Client['transaction']}*/
     async transaction(callback) {
         if (this.nested) {
             return await callback(this);

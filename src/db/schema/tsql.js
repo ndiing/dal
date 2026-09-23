@@ -1,7 +1,6 @@
 const Schema = require("../schema");
 
 class TSQLSchema extends Schema {
-    /**@type {Schema['_buildConstraint']}*/
     _buildConstraint(constraint, str) {
         const arr = [];
         if (constraint._method && constraint._method !== "ADD") {
@@ -11,12 +10,10 @@ class TSQLSchema extends Schema {
         return arr.join(" ");
     }
 
-    /**@type {Schema['_buildIdentity']}*/
     _buildIdentity(_identity) {
         return `IDENTITY(${Object.values(_identity).join(", ")})`;
     }
 
-    /**@type {Schema['_buildColumn']}*/
     _buildColumn(column) {
         const arr = [];
 

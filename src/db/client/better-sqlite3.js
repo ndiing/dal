@@ -117,7 +117,6 @@ class BetterSqlite3Client extends Client {
         this.counter--;
     }
 
-    /**@type {Client['transaction']}*/
     async transaction(callback) {
         await this.connect();
         try {
