@@ -46,10 +46,12 @@ class Client {
         return `@${name}`;
     }
 
+    /**@returns {import("./raw.js")} */
     raw() {
         return new Raw(this).set(...arguments);
     }
 
+    /**@returns {import("./query.js")} */
     query() {
         return new Query(this);
     }

@@ -82,10 +82,12 @@ class Database {
         return this.client.escapeLiteral(any);
     }
 
+    /**@returns {import("./raw.js")} */
     raw() {
         return this.client.raw(...arguments);
     }
 
+    /**@returns {import("./query.js")} */
     query() {
         return this.client.query();
     }

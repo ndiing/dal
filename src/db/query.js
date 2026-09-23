@@ -8,35 +8,35 @@ const { isArray, isObject, isFunction, QUERY, RAW } = require("./util.js");
 
 class Query extends Thenable {
     [QUERY] = true;
-     _with = [];
-     _withRecursive = [];
-     _columns = null;
-     _placeholders = null;
-     _values = null;
-     _insert = null;
-     _default = null;
-     _onConflict = null;
-     _doUpdate = null;
-     _doNothing = null;
-     _update = null;
-     _delete = null;
-     _select = null;
-     _from = null;
-     _join = [];
-     _on = [];
-     _where = [];
-     _groupBy = [];
-     _having = [];
-     _orderBy = [];
-     _union = [];
-     _limit = null;
-     _offset = null;
-     _returning = null;
-     _as = null;
-     _counter = {};
+    /**@private*/ _with = [];
+    /**@private*/ _withRecursive = [];
+    /**@private*/ _columns = null;
+    /**@private*/ _placeholders = null;
+    /**@private*/ _values = null;
+    /**@private*/ _insert = null;
+    /**@private*/ _default = null;
+    /**@private*/ _onConflict = null;
+    /**@private*/ _doUpdate = null;
+    /**@private*/ _doNothing = null;
+    /**@private*/ _update = null;
+    /**@private*/ _delete = null;
+    /**@private*/ _select = null;
+    /**@private*/ _from = null;
+    /**@private*/ _join = [];
+    /**@private*/ _on = [];
+    /**@private*/ _where = [];
+    /**@private*/ _groupBy = [];
+    /**@private*/ _having = [];
+    /**@private*/ _orderBy = [];
+    /**@private*/ _union = [];
+    /**@private*/ _limit = null;
+    /**@private*/ _offset = null;
+    /**@private*/ _returning = null;
+    /**@private*/ _as = null;
+    /**@private*/ _counter = {};
     params = null;
-     _subquery = null;
-     _reference = null;
+    /**@private*/ _subquery = null;
+    /**@private*/ _reference = null;
     used = null;
 
     constructor(client) {
@@ -44,7 +44,7 @@ class Query extends Thenable {
         this.params = this.client.defaultParams();
     }
 
-    
+    /**@private*/
     _createSubquery(callback) {
         if (isFunction(callback)) {
             const query = new Query(this.client);
@@ -55,7 +55,7 @@ class Query extends Thenable {
         return callback;
     }
 
-    
+    /**@private*/
     _createReference(callback) {
         if (isFunction(callback)) {
             const query = new Query(this.client);
@@ -181,7 +181,7 @@ class Query extends Thenable {
         return this;
     }
 
-    
+    /**@private*/
     _createWhereCondition(column, operator, value) {
         column = this._createSubquery(column);
         if (value === undefined && operator !== undefined) {
@@ -196,7 +196,7 @@ class Query extends Thenable {
         return { column, operator, value };
     }
 
-    
+    /**@private*/
     _createJoinCondition(column, operator, value) {
         column = this._createSubquery(column);
         if (value === undefined && operator !== undefined) {
@@ -211,7 +211,7 @@ class Query extends Thenable {
         return { column, operator, value };
     }
 
-    
+    /**@private*/
     _setJoin(type, table, column, operator, value) {
         table = this._createSubquery(table);
         column = this._createReference(column);
@@ -295,7 +295,7 @@ class Query extends Thenable {
         return this;
     }
 
-    
+    /**@private*/
     _setOn(conjunction, type, column, operator, value) {
         if (!this._subquery && !this._reference) {
             throw new Error(`Invalid usage: on()|onNot()|onExists()|onNotExists()|orOn()|orOnNot()|orOnExists()|orOnNotExists() can only be called inside a join() callback`);
@@ -403,7 +403,7 @@ class Query extends Thenable {
         return this;
     }
 
-    
+    /**@private*/
     _setWhere(conjunction, type, column, operator, value) {
         conjunction = this._where.length ? conjunction : "";
         const condition = this._createWhereCondition(column, operator, value);
@@ -512,7 +512,7 @@ class Query extends Thenable {
         return this;
     }
 
-    
+    /**@private*/
     _setHaving(conjunction, type, column, operator, value) {
         conjunction = this._having.length ? conjunction : "";
         const condition = this._createWhereCondition(column, operator, value);
@@ -549,7 +549,7 @@ class Query extends Thenable {
         return this;
     }
 
-    
+    /**@private*/
     _setUnion(type, callback) {
         const query = this._createReference(callback);
         this._union.push({ type, query });
@@ -600,7 +600,7 @@ class Query extends Thenable {
         return this;
     }
 
-    
+    /**@private*/
     _setParams(params) {
         if (isArray(this.params)) {
             for (const value of params) {
@@ -613,7 +613,7 @@ class Query extends Thenable {
         }
     }
 
-    
+    /**@private*/
     _buildRawQuery(raw) {
         if ((raw && raw[RAW]) || raw[QUERY]) {
             raw._counter = this._counter;
@@ -625,7 +625,7 @@ class Query extends Thenable {
         return raw;
     }
 
-    
+    /**@private*/
     _buildCondition({ column, operator, value } = {}) {
         column = this._buildRawQuery(column);
 
@@ -662,7 +662,7 @@ class Query extends Thenable {
         return arr.join(" ");
     }
 
-    
+    /**@private*/
     _applyWith(arr) {
         arr.push("WITH");
         arr.push(
@@ -677,7 +677,7 @@ class Query extends Thenable {
         );
     }
 
-    
+    /**@private*/
     _applyWithRecursive(arr) {
         arr.push("WITH RECURSIVE");
         arr.push(
@@ -692,7 +692,7 @@ class Query extends Thenable {
         );
     }
 
-    
+    /**@private*/
     _applyInsert(arr) {
         arr.push("INSERT");
         arr.push("INTO");
@@ -722,7 +722,7 @@ class Query extends Thenable {
         }
     }
 
-    
+    /**@private*/
     _applyUpdate(arr) {
         arr.push("UPDATE", this._update, "SET");
         const raw = this.client.raw(
@@ -741,12 +741,12 @@ class Query extends Thenable {
         arr.push(this._buildRawQuery(raw));
     }
 
-    
+    /**@private*/
     _applyDelete(arr) {
         arr.push("DELETE");
     }
 
-    
+    /**@private*/
     _applySelect(arr) {
         arr.push("SELECT");
         arr.push(
@@ -761,13 +761,13 @@ class Query extends Thenable {
         );
     }
 
-    
+    /**@private*/
     _applyFrom(arr) {
         arr.push("FROM");
         arr.push(this._buildRawQuery(this._from));
     }
 
-    
+    /**@private*/
     _applyJoin(arr) {
         arr.push(
             this._join
@@ -786,7 +786,7 @@ class Query extends Thenable {
         );
     }
 
-    
+    /**@private*/
     _applyOn(arr) {
         arr.push(
             this._on
@@ -805,7 +805,7 @@ class Query extends Thenable {
         );
     }
 
-    
+    /**@private*/
     _applyWhere(arr) {
         const str = this._subquery && this._select === null ? "" : "WHERE";
         if (str) {
@@ -828,13 +828,13 @@ class Query extends Thenable {
         );
     }
 
-    
+    /**@private*/
     _applyGroupBy(arr) {
         arr.push("GROUP BY");
         arr.push(this._groupBy.join(", "));
     }
 
-    
+    /**@private*/
     _applyHaving(arr) {
         const str = this._subquery && this._select === null ? "" : "HAVING";
         if (str) {
@@ -857,7 +857,7 @@ class Query extends Thenable {
         );
     }
 
-    
+    /**@private*/
     _applyOrderBy(arr) {
         arr.push("ORDER BY");
         arr.push(
@@ -874,7 +874,7 @@ class Query extends Thenable {
         );
     }
 
-    
+    /**@private*/
     _applyUnion(arr) {
         arr.push(
             this._union
@@ -888,27 +888,27 @@ class Query extends Thenable {
         );
     }
 
-    
+    /**@private*/
     _applyLimit(arr) {
         arr.push("LIMIT");
         const raw = this.client.raw("?", [this._limit]);
         arr.push(this._buildRawQuery(raw));
     }
 
-    
+    /**@private*/
     _applyOffset(arr) {
         arr.push("OFFSET");
         const raw = this.client.raw("?", [this._offset]);
         arr.push(this._buildRawQuery(raw));
     }
 
-    
+    /**@private*/
     _applyReturning(arr) {
         arr.push("RETURNING");
         arr.push(this._returning.map((column) => column).join(", "));
     }
 
-    
+    /**@private*/
     _buildStatement(arr) {
         let query = arr.join(" ");
         if (this._subquery) {

@@ -8,39 +8,41 @@ export type QueryCallback = (query: Query) => any;
  */
 declare class Query extends Thenable {
     [QUERY]: boolean;
-    _with: any[];
-    _withRecursive: any[];
-    _columns: null;
-    _placeholders: null;
-    _values: null;
-    _insert: null;
-    _default: null;
-    _onConflict: null;
-    _doUpdate: null;
-    _doNothing: null;
-    _update: null;
-    _delete: null;
-    _select: null;
-    _from: null;
-    _join: any[];
-    _on: any[];
-    _where: any[];
-    _groupBy: any[];
-    _having: any[];
-    _orderBy: any[];
-    _union: any[];
-    _limit: null;
-    _offset: null;
-    _returning: null;
-    _as: null;
-    _counter: {};
+    /**@private*/ private _with;
+    /**@private*/ private _withRecursive;
+    /**@private*/ private _columns;
+    /**@private*/ private _placeholders;
+    /**@private*/ private _values;
+    /**@private*/ private _insert;
+    /**@private*/ private _default;
+    /**@private*/ private _onConflict;
+    /**@private*/ private _doUpdate;
+    /**@private*/ private _doNothing;
+    /**@private*/ private _update;
+    /**@private*/ private _delete;
+    /**@private*/ private _select;
+    /**@private*/ private _from;
+    /**@private*/ private _join;
+    /**@private*/ private _on;
+    /**@private*/ private _where;
+    /**@private*/ private _groupBy;
+    /**@private*/ private _having;
+    /**@private*/ private _orderBy;
+    /**@private*/ private _union;
+    /**@private*/ private _limit;
+    /**@private*/ private _offset;
+    /**@private*/ private _returning;
+    /**@private*/ private _as;
+    /**@private*/ private _counter;
     params: null;
-    _subquery: null;
-    _reference: null;
+    /**@private*/ private _subquery;
+    /**@private*/ private _reference;
     used: null;
     constructor(client: any);
-    _createSubquery(callback: any): any;
-    _createReference(callback: any): any;
+    /**@private*/
+    private _createSubquery;
+    /**@private*/
+    private _createReference;
     /**
      *
      * @param {String} name
@@ -80,17 +82,12 @@ declare class Query extends Thenable {
      * @returns {this}
      */
     from(table: string | QueryCallback): this;
-    _createWhereCondition(column: any, operator: any, value: any): {
-        column: any;
-        operator: any;
-        value: any;
-    };
-    _createJoinCondition(column: any, operator: any, value: any): {
-        column: any;
-        operator: any;
-        value: any;
-    };
-    _setJoin(type: any, table: any, column: any, operator: any, value: any): this;
+    /**@private*/
+    private _createWhereCondition;
+    /**@private*/
+    private _createJoinCondition;
+    /**@private*/
+    private _setJoin;
     /**
      *
      * @param {String} table
@@ -142,7 +139,8 @@ declare class Query extends Thenable {
      * @returns {this}
      */
     fullOuterJoin(table: string, column: string | QueryCallback, operator: string, value: string | QueryCallback): this;
-    _setOn(conjunction: any, type: any, column: any, operator: any, value: any): this;
+    /**@private*/
+    private _setOn;
     /**
      *
      * @param {String|QueryCallback} column
@@ -207,7 +205,8 @@ declare class Query extends Thenable {
      * @returns {this}
      */
     orOnNotExists(column: string | QueryCallback, operator: string, value: string | QueryCallback): this;
-    _setWhere(conjunction: any, type: any, column: any, operator: any, value: any): this;
+    /**@private*/
+    private _setWhere;
     /**
      *
      * @param {String|QueryCallback} column
@@ -273,7 +272,8 @@ declare class Query extends Thenable {
      */
     orWhereNotExists(column: string | QueryCallback, operator: string, value: string | QueryCallback): this;
     groupBy(...columns: any[]): this;
-    _setHaving(conjunction: any, type: any, column: any, operator: any, value: any): this;
+    /**@private*/
+    private _setHaving;
     /**
      *
      * @param {String|QueryCallback} column
@@ -291,7 +291,8 @@ declare class Query extends Thenable {
      */
     orHaving(column: string | QueryCallback, operator: string, value: string | QueryCallback): this;
     orderBy(column: any, direction: any): this;
-    _setUnion(type: any, callback: any): this;
+    /**@private*/
+    private _setUnion;
     /**
      *
      * @param {QueryCallback} callback
@@ -308,27 +309,48 @@ declare class Query extends Thenable {
     offset(offset?: null): this;
     returning(...columns: any[]): this;
     as(alias: any): this;
-    _setParams(params: any): void;
-    _buildRawQuery(raw: any): any;
-    _buildCondition({ column, operator, value }?: {}): string;
-    _applyWith(arr: any): void;
-    _applyWithRecursive(arr: any): void;
-    _applyInsert(arr: any): void;
-    _applyUpdate(arr: any): void;
-    _applyDelete(arr: any): void;
-    _applySelect(arr: any): void;
-    _applyFrom(arr: any): void;
-    _applyJoin(arr: any): void;
-    _applyOn(arr: any): void;
-    _applyWhere(arr: any): void;
-    _applyGroupBy(arr: any): void;
-    _applyHaving(arr: any): void;
-    _applyOrderBy(arr: any): void;
-    _applyUnion(arr: any): void;
-    _applyLimit(arr: any): void;
-    _applyOffset(arr: any): void;
-    _applyReturning(arr: any): void;
-    _buildStatement(arr: any): any;
+    /**@private*/
+    private _setParams;
+    /**@private*/
+    private _buildRawQuery;
+    /**@private*/
+    private _buildCondition;
+    /**@private*/
+    private _applyWith;
+    /**@private*/
+    private _applyWithRecursive;
+    /**@private*/
+    private _applyInsert;
+    /**@private*/
+    private _applyUpdate;
+    /**@private*/
+    private _applyDelete;
+    /**@private*/
+    private _applySelect;
+    /**@private*/
+    private _applyFrom;
+    /**@private*/
+    private _applyJoin;
+    /**@private*/
+    private _applyOn;
+    /**@private*/
+    private _applyWhere;
+    /**@private*/
+    private _applyGroupBy;
+    /**@private*/
+    private _applyHaving;
+    /**@private*/
+    private _applyOrderBy;
+    /**@private*/
+    private _applyUnion;
+    /**@private*/
+    private _applyLimit;
+    /**@private*/
+    private _applyOffset;
+    /**@private*/
+    private _applyReturning;
+    /**@private*/
+    private _buildStatement;
     build(): never[] | {
         query: any;
         params: null;

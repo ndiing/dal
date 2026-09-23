@@ -2,9 +2,10 @@ export = Thenable;
 declare class Thenable {
     /**@type {import("./client.js")}*/
     client: import("./client.js");
-    _transforms: any[];
+    /**@private*/ private _transforms;
     constructor(client: any);
-    _transform(rows: any): any;
+    /**@private*/
+    private _transform;
     first(column: any): this;
     count(): this;
     exists(): this;
