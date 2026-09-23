@@ -46,16 +46,6 @@ describe("query-sqlitesql", () => {
             },
         });
     });
-    /**@deprecated*/
-    // test("INSERT OR IGNORE", () => {
-    //     const result = db.query().insert("users", { nama: "Budi", email: "budi@mail.com" }).orIgnore().build();
-    //     expect(result).toEqual({ query: "INSERT OR IGNORE INTO users (nama, email) VALUES (@nama, @email);", params: { nama: "Budi", email: "budi@mail.com" } });
-    // });
-    /**@deprecated*/
-    // test("INSERT OR REPLACE", () => {
-    //     const result = db.query().insert("users", { id: 1, nama: "Budi", email: "budi@mail.com" }).orReplace().build();
-    //     expect(result).toEqual({ query: "INSERT OR REPLACE INTO users (id, nama, email) VALUES (@id, @nama, @email);", params: { id: 1, nama: "Budi", email: "budi@mail.com" } });
-    // });
     test("UPSERT (SQLite 3.24+) - Yang Bener", () => {
         const result = db
             .query()
@@ -322,11 +312,6 @@ describe("query-sqlitesql", () => {
             params: { param: 10, param1: 20 },
         });
     });
-    /**@deprecated*/
-    // test("sintaks alternatif (offset, limit)", () => {
-    //     const result = db.query().select().from("users").limit(20, 10).build();
-    //     expect(result).toEqual({ query: "SELECT * FROM users LIMIT @param, @param1;", params: { param: 20, param1: 10 } });
-    // });
     test("Daripada: LIMIT 10 OFFSET 100000", () => {
         const result = db.query().select().from("users").where("id", ">", 100000).orderBy("id").limit(10).build();
         expect(result).toEqual({
@@ -503,16 +488,6 @@ describe("query-sqlitesql", () => {
             params: {},
         });
     });
-    /**@deprecated*/
-    // test("USING (shortcut kalau nama kolom sama)", () => {
-    //     const result = db
-    //         .query()
-    //         .select()
-    //         .from("users")
-    //         .join("orders", (query) => query.using("user_id"))
-    //         .build();
-    //     expect(result).toEqual({ query: "SELECT * FROM users JOIN orders USING (user_id);", params: {} });
-    // });
     test("UNION: hilangin duplikat (lebih lambat, ada sorting)", () => {
         const result = db
             .query()
@@ -897,27 +872,10 @@ describe("query-sqlitesql", () => {
             params: { param: 7000000 },
         });
     });
-    /**@deprecated*/
-    // test("Contoh Multiple JOIN pakai USING", () => {
-    //     const result = db
-    //         .query()
-    //         .select("e.name AS employee", "d.name AS department", "param.name AS project", "ep.role")
-    //         .from("employees e")
-    //         .join("departments d", (query) => query.using("department_id"))
-    //         .join("employee_projects ep", (query) => query.using("employee_id"))
-    //         .join("projects param", (query) => query.using("project_id"))
-    //         .build();
-    //     expect(result).toEqual({ query: "SELECT e.name AS employee, d.name AS department, param.name AS project, ep.role FROM employees e JOIN departments d USING (department_id) JOIN employee_projects ep USING (employee_id) JOIN projects param USING (project_id);", params: {} });
-    // });
     test("on() di luar callback join harus error", () => {
         const result = () => db.query().select().from("users").on("id", 1).build();
         expect(result).toThrow("Invalid usage: on()|onNot()|onExists()|onNotExists()|orOn()|orOnNot()|orOnExists()|orOnNotExists() can only be called inside a join() callback");
     });
-    /**@deprecated*/
-    // test("using() di luar callback join harus error", () => {
-    //     const result = () => db.query().select().from("users").using("id").build();
-    //     expect(result).toThrow("Invalid usage: using() can only be called inside a join() callback");
-    // });
     test("handle null", () => {
         const result = db.query().select("users").where("deleted_at", "is not", null).build();
         expect(result).toEqual({
@@ -937,5 +895,24 @@ describe("query-sqlitesql", () => {
     });
     test("thenable with pluck", async () => {
         const result = await db.query().select().from("users").pluck("id");
+    });
+
+    test("UPSERT (SQLite 3.24+) - Yang Bener", () => {
+        const result = db
+            .query()
+            .insert("users", {
+                id: 1,
+                nama: "Budi",
+                email: "budi@mail.com",
+                umur: 26,
+            })
+            .onConflict("id")
+            .doUpdate("nama", "email")
+            .build();
+        // console.log(result)
+        expect(result).toEqual({
+            query: "INSERT INTO users (id, nama, email, umur) VALUES (@id, @nama, @email, @umur) ON CONFLICT (id) DO UPDATE SET nama = excluded.nama, email = excluded.email;",
+            params: { id: 1, nama: "Budi", email: "budi@mail.com", umur: 26 },
+        });
     });
 });

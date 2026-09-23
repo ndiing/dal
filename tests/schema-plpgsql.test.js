@@ -7,9 +7,6 @@ const db = new Database({
     },
 });
 
-// db.transaction(c=>{
-// })
-
 describe("schema-plpgsql", () => {
     test("inline constraint", () => {
         const result = db
@@ -186,7 +183,6 @@ describe("schema-plpgsql", () => {
 
                 table.primaryKey("email");
                 table.unique("email");
-                // table.default("system@company.com").for('email')
                 table.check("email", "LIKE", "%@%.%");
                 table.foreignKey("email").references("akun_induk", "email_induk");
 
@@ -220,7 +216,6 @@ describe("schema-plpgsql", () => {
 
                 table.constraint().primaryKey("email");
                 table.constraint().unique("email");
-                // table.constraint().default("system@company.com").for("email")
                 table.constraint().check("email", "LIKE", "%@%.%");
                 table.constraint().foreignKey("email").references("akun_induk", "email_induk");
 
@@ -254,7 +249,6 @@ describe("schema-plpgsql", () => {
 
                 table.constraint("PK_name").primaryKey("email");
                 table.constraint("UQ_name").unique("email");
-                // table.constraint("DF_name").default("system@company.com").for("email");
                 table.constraint("CK_name").check("email", "LIKE", "%@%.%");
                 table.constraint("FK_name").foreignKey("email").references("akun_induk", "email_induk");
 

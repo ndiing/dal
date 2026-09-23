@@ -8,7 +8,6 @@ const db = new Database({
         user: "postgres",
         password: "postgres",
     },
-    // debug: true,
 });
 
 class UserRepository extends Repository {

@@ -4,8 +4,12 @@ const Index = require("./index.js");
 
 class Table {
     /**@private*/ _method = null;
-    /**@private*/ _name = null;
-    /**@private*/ _constraint = null;
+    /**@private*/ _name = null;   
+    /**
+     * @private
+     * @type {Constraint}
+     */
+    _constraint = null;
 
     /**@type {Column[]}*/
     columns = [];
@@ -23,7 +27,6 @@ class Table {
     }
 
     /**
-     *
      * @param {String} name
      * @returns {Column & Column.PLpgSQLTypes & Column.SQLiteSQLTypes & Column.TSQLTypes}
      */
@@ -35,7 +38,6 @@ class Table {
     }
 
     /**
-     *
      * @param {String} name
      * @returns {Column & Column.PLpgSQLTypes & Column.SQLiteSQLTypes & Column.TSQLTypes}
      */
@@ -44,7 +46,6 @@ class Table {
     }
 
     /**
-     *
      * @param {String} name
      * @returns {Column & Column.PLpgSQLTypes & Column.SQLiteSQLTypes & Column.TSQLTypes}
      */
@@ -55,7 +56,6 @@ class Table {
     }
 
     /**
-     *
      * @param {String} name
      * @returns {Column & Column.PLpgSQLTypes & Column.SQLiteSQLTypes & Column.TSQLTypes}
      */

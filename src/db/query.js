@@ -67,7 +67,6 @@ class Query extends Thenable {
     }
 
     /**
-     *
      * @param {String} name
      * @param {QueryCallback} callback
      * @returns {this}
@@ -79,7 +78,6 @@ class Query extends Thenable {
     }
 
     /**
-     *
      * @param {String} name
      * @param {QueryCallback} callback
      * @returns {this}
@@ -120,9 +118,12 @@ class Query extends Thenable {
         return this;
     }
 
-    doUpdate() {
+    doUpdate(...columns) {
+        columns=columns.flat()
         const _onConflict = new Set(this._onConflict);
-        this._doUpdate = this._columns.filter((column) => !_onConflict.has(column));
+        this._doUpdate = 
+        columns.length?columns:
+        this._columns.filter((column) => !_onConflict.has(column));
         return this;
     }
 
@@ -132,7 +133,6 @@ class Query extends Thenable {
     }
 
     /**
-     *
      * @param {String} table
      * @param {Object.<string, QueryCallback>} row
      * @returns {this}
@@ -158,7 +158,6 @@ class Query extends Thenable {
     }
 
     /**
-     *
      * @param  {...(String|QueryCallback)} columns
      * @returns {this}
      */
@@ -172,7 +171,6 @@ class Query extends Thenable {
     }
 
     /**
-     *
      * @param {String|QueryCallback} table
      * @returns {this}
      */
@@ -221,7 +219,6 @@ class Query extends Thenable {
     }
 
     /**
-     *
      * @param {String} table
      * @param {String|QueryCallback} column
      * @param {String} operator
@@ -234,7 +231,6 @@ class Query extends Thenable {
     }
 
     /**
-     *
      * @param {String} table
      * @param {String|QueryCallback} column
      * @param {String} operator
@@ -247,7 +243,6 @@ class Query extends Thenable {
     }
 
     /**
-     *
      * @param {String} table
      * @param {String|QueryCallback} column
      * @param {String} operator
@@ -260,7 +255,6 @@ class Query extends Thenable {
     }
 
     /**
-     *
      * @param {String} table
      * @returns {this}
      */
@@ -270,7 +264,6 @@ class Query extends Thenable {
     }
 
     /**
-     *
      * @param {String} table
      * @param {String|QueryCallback} column
      * @param {String} operator
@@ -283,7 +276,6 @@ class Query extends Thenable {
     }
 
     /**
-     *
      * @param {String} table
      * @param {String|QueryCallback} column
      * @param {String} operator
@@ -308,7 +300,6 @@ class Query extends Thenable {
     }
 
     /**
-     *
      * @param {String|QueryCallback} column
      * @param {String} operator
      * @param {String|QueryCallback} value
@@ -320,7 +311,6 @@ class Query extends Thenable {
     }
 
     /**
-     *
      * @param {String|QueryCallback} column
      * @param {String} operator
      * @param {String|QueryCallback} value
@@ -332,7 +322,6 @@ class Query extends Thenable {
     }
 
     /**
-     *
      * @param {String|QueryCallback} column
      * @param {String} operator
      * @param {String|QueryCallback} value
@@ -344,7 +333,6 @@ class Query extends Thenable {
     }
 
     /**
-     *
      * @param {String|QueryCallback} column
      * @param {String} operator
      * @param {String|QueryCallback} value
@@ -356,7 +344,6 @@ class Query extends Thenable {
     }
 
     /**
-     *
      * @param {String|QueryCallback} column
      * @param {String} operator
      * @param {String|QueryCallback} value
@@ -368,7 +355,6 @@ class Query extends Thenable {
     }
 
     /**
-     *
      * @param {String|QueryCallback} column
      * @param {String} operator
      * @param {String|QueryCallback} value
@@ -380,7 +366,6 @@ class Query extends Thenable {
     }
 
     /**
-     *
      * @param {String|QueryCallback} column
      * @param {String} operator
      * @param {String|QueryCallback} value
@@ -392,7 +377,6 @@ class Query extends Thenable {
     }
 
     /**
-     *
      * @param {String|QueryCallback} column
      * @param {String} operator
      * @param {String|QueryCallback} value
@@ -412,7 +396,6 @@ class Query extends Thenable {
     }
 
     /**
-     *
      * @param {String|QueryCallback} column
      * @param {String} operator
      * @param {String|QueryCallback} value
@@ -424,7 +407,6 @@ class Query extends Thenable {
     }
 
     /**
-     *
      * @param {String|QueryCallback} column
      * @param {String} operator
      * @param {String|QueryCallback} value
@@ -436,7 +418,6 @@ class Query extends Thenable {
     }
 
     /**
-     *
      * @param {String|QueryCallback} column
      * @param {String} operator
      * @param {String|QueryCallback} value
@@ -448,7 +429,6 @@ class Query extends Thenable {
     }
 
     /**
-     *
      * @param {String|QueryCallback} column
      * @param {String} operator
      * @param {String|QueryCallback} value
@@ -460,7 +440,6 @@ class Query extends Thenable {
     }
 
     /**
-     *
      * @param {String|QueryCallback} column
      * @param {String} operator
      * @param {String|QueryCallback} value
@@ -472,7 +451,6 @@ class Query extends Thenable {
     }
 
     /**
-     *
      * @param {String|QueryCallback} column
      * @param {String} operator
      * @param {String|QueryCallback} value
@@ -484,7 +462,6 @@ class Query extends Thenable {
     }
 
     /**
-     *
      * @param {String|QueryCallback} column
      * @param {String} operator
      * @param {String|QueryCallback} value
@@ -496,7 +473,6 @@ class Query extends Thenable {
     }
 
     /**
-     *
      * @param {String|QueryCallback} column
      * @param {String} operator
      * @param {String|QueryCallback} value
@@ -521,7 +497,6 @@ class Query extends Thenable {
     }
 
     /**
-     *
      * @param {String|QueryCallback} column
      * @param {String} operator
      * @param {String|QueryCallback} value
@@ -533,7 +508,6 @@ class Query extends Thenable {
     }
 
     /**
-     *
      * @param {String|QueryCallback} column
      * @param {String} operator
      * @param {String|QueryCallback} value
@@ -557,7 +531,6 @@ class Query extends Thenable {
     }
 
     /**
-     *
      * @param {QueryCallback} callback
      * @returns {this}
      */
@@ -567,7 +540,6 @@ class Query extends Thenable {
     }
 
     /**
-     *
      * @param {QueryCallback} callback
      * @returns {this}
      */

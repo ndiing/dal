@@ -1,17 +1,3 @@
-const BetterSqlite3Client = require("./client/better-sqlite3");
-const MssqlClient = require("./client/mssql");
-const PgClient = require("./client/pg");
-
-const SQLiteSQLMigration = require("./migration/sqlitesql.js");
-const TSQLMigration = require("./migration/tsql.js");
-const PLpgSQLMigration = require("./migration/plpgsql.js");
-
-const Clients = {
-    "better-sqlite3": BetterSqlite3Client,
-    mssql: MssqlClient,
-    pg: PgClient,
-};
-
 const Dialects = {
     "better-sqlite3": "sqlitesql",
     mssql: "tsql",
@@ -23,10 +9,16 @@ const Dialects = {
  * @typedef {typeof Dialects[DialectKey]} DialectValue
  */
 
+const Clients = {
+    "better-sqlite3": require("./client/better-sqlite3"),
+    mssql: require("./client/mssql"),
+    pg: require("./client/pg"),
+};
+
 const Migrations = {
-    sqlitesql: SQLiteSQLMigration,
-    tsql: TSQLMigration,
-    plpgsql: PLpgSQLMigration,
+    sqlitesql: require("./migration/sqlitesql.js"),
+    tsql: require("./migration/tsql.js"),
+    plpgsql: require("./migration/plpgsql.js"),
 };
 
 /**

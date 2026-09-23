@@ -6,7 +6,6 @@ const db = new Database({
     connection: {
         database: "./test.db",
     },
-    // debug:true
 });
 
 class UserRepository extends Repository {
@@ -30,14 +29,12 @@ const userRepo = new UserRepository(db);
 
 describe("repository-sqlitesql", () => {
     beforeAll(async () => {
-        // check table
         const exists = await db.query().select().from("sqlite_master").where("type", "table").where("name", "users").limit(1).exists();
 
         if (exists) {
             await db.schema().dropTable("users");
         }
 
-        // create table
         await db.schema().createTable("users", (table) => {
             table.column("id").integer().primaryKey().identity();
             table.column("name").text().notNull();
@@ -138,4 +135,11 @@ describe("repository-sqlitesql", () => {
         });
         expect(result.rows.length).toBe(3);
     });
+
+    test('test unixepoch()',async () => {
+        const result = await db.query()
+        .select('unixepoch() as now')
+        .first('now')
+        expect(result).toBe(Math.floor(Date.now()/1000))
+    })
 });

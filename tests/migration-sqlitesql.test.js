@@ -9,10 +9,9 @@ const db = new Database({
 
 describe("migration-sqlitesql", () => {
     test("migrate", async () => {
-        // await db.schema().dropTable('migrations').then(console.log)
-        await db.migrate(); //.then(console.log)
+        await db.migrate();
     });
     test("rollback", async () => {
-        await db.rollback(); //.then(console.log)
+        await db.rollback();
     });
 });

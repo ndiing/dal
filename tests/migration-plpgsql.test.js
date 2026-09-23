@@ -8,17 +8,13 @@ const db = new Database({
         user: "postgres",
         password: "postgres",
     },
-    // debug:true
 });
-
-// console.log(db)
 
 describe("migration-plpgsql", () => {
     test("migrate", async () => {
-        // await db.schema().dropTable('users2').then(console.log)
-        await db.migrate(); //.then(console.log)
+        await db.migrate();
     });
     test("rollback", async () => {
-        await db.rollback(); //.then(console.log)
+        await db.rollback();
     });
 });

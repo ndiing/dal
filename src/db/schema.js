@@ -1,6 +1,6 @@
 const Table = require("./table.js");
 const Thenable = require("./thenable.js");
-const { isString, isBoolean, isNumber, RAW, CONSTRAINT, TABLE } = require("./util.js");
+const { isString, isBoolean, RAW, CONSTRAINT } = require("./util.js");
 
 /**
  * @callback TableCallback

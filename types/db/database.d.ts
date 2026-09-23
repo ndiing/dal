@@ -5,7 +5,7 @@ declare const Dialects: {
     pg: string;
 };
 export type DialectKey = keyof typeof Dialects;
-export type DialectValue = typeof Dialects[DialectKey];
+export type DialectValue = (typeof Dialects)[DialectKey];
 export type Connection = {
     user: string;
     password: string;

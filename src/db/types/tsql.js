@@ -1,4 +1,3 @@
-
 const TSQLTypes = {
     varChar: (length) => ({ type: "VARCHAR", length }),
     nVarChar: (length) => ({ type: "NVARCHAR", length }),

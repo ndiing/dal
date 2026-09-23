@@ -1,4 +1,3 @@
-
 const SQLiteSQLTypes = {
     int: () => ({ type: "INT" }),
     tinyInt: () => ({ type: "TINYINT" }),

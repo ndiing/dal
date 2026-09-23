@@ -1,5 +1,5 @@
 const Thenable = require("./thenable.js");
-const { isArray, isObject, isPlainObject, RAW, QUERY } = require("./util.js");
+const { isArray, isPlainObject, RAW, QUERY } = require("./util.js");
 
 class Raw extends Thenable {
     [RAW] = true;

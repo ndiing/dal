@@ -1,8 +1,8 @@
 export = Migration;
 export type Context = {
-    query: () => import('./query.js');
-    schema: () => import('./schema.js');
-    raw: () => import('./raw.js');
+    query: () => import("./query.js");
+    schema: () => import("./schema.js");
+    raw: () => import("./raw.js");
 };
 /**
  * @typedef Context
@@ -26,12 +26,12 @@ declare class Migration {
     directory: any;
     tableName: string;
     /**@type {import('./client.js')}*/
-    client: import('./client.js');
+    client: import("./client.js");
     /**
      * @param {import('./client.js')} client
      * @param {Object} config
      */
-    constructor(client: import('./client.js'), config?: Object);
+    constructor(client: import("./client.js"), config?: Object);
     _hasTable(): Promise<any>;
     _createTable(): Promise<any>;
     _ensureTable(): Promise<any>;

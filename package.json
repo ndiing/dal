@@ -1,6 +1,6 @@
 {
   "name": "@ndiinginc/dal",
-  "version": "1.1.15",
+  "version": "1.2.0",
   "description": "A lightweight, chainable SQL query builder, schema builder, migration runner, and repository layer for Node.js.",
   "main": "./src/index.js",
   "types": "./types/index.d.ts",
@@ -8,6 +8,7 @@
     "test": "jest",
     "test:live": "jest --watchAll",
     "dev": "nodemon src/index.js",
+    "dev:internal": "nodemon dev/index.js",
     "prettier": "npx prettier . --write",
     "commit": "node scripts/commit.js",
     "npm:dry-run": "npm publish --dry-run",

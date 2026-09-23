@@ -1,4 +1,3 @@
-
 const PLpgSQLTypes = {
     bigInt: () => ({ type: "BIGINT" }),
     int8: () => ({ type: "INT8" }),
