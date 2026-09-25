@@ -5,10 +5,8 @@
     "main": "./src/database.js",
     "types": "./types/database.d.ts",
     "scripts": {
-        "test": "jest",
-        "test:live": "jest --watchAll",
+        "test": "nodemon --exec \"node -e \\\"require('@ndiinginc/test')(require('path').join(process.cwd(),'tests'),{verbose:true})\\\"\"",
         "dev": "nodemon src/index.js",
-        "dev:internal": "nodemon dev/index.js",
         "prettier": "npx prettier . --write",
         "commit": "node scripts/commit.js",
         "npm:dry-run": "npm publish --dry-run",
@@ -21,6 +19,7 @@
     "license": "ISC",
     "type": "commonjs",
     "devDependencies": {
+        "@ndiinginc/test": "^1.0.0",
         "@types/jest": "^30.0.0",
         "better-sqlite3": "^13.0.3",
         "jest": "^30.5.2",
