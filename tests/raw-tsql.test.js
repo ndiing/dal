@@ -1,4 +1,4 @@
-const Database = require("../src/db/database.js");
+const Database = require("../src/database.js");
 
 const db = new Database({
     client: "mssql",

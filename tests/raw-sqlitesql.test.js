@@ -1,5 +1,5 @@
-const Database = require("../src/db/database.js");
-const { isArray, isObject } = require("../src/db/util.js");
+const Database = require("../src/database.js");
+const { isArray, isObject } = require("../src/util.js");
 const db = new Database({
     client: "better-sqlite3",
     connection: {

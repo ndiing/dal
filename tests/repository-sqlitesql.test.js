@@ -1,5 +1,5 @@
-const Database = require("../src/db/database.js");
-const Repository = require("../src/db/repository.js");
+const Database = require("../src/database.js");
+const Repository = require("../src/repository.js");
 
 const db = new Database({
     client: "better-sqlite3",

@@ -1,5 +1,5 @@
-const Database = require("../src/db/database.js");
-const Migration = require("../src/db/migration.js");
+const Database = require("../src/database.js");
+const Migration = require("../src/migration.js");
 
 const db = new Database({
     client: "pg",
