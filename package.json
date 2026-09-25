@@ -1,43 +1,43 @@
 {
-  "name": "@ndiinginc/dal",
-  "version": "1.3.0",
-  "description": "A lightweight, chainable SQL query builder, schema builder, migration runner, and repository layer for Node.js.",
-  "main": "./src/database.js",
-  "types": "./types/database.d.ts",
-  "scripts": {
-    "test": "jest",
-    "test:live": "jest --watchAll",
-    "dev": "nodemon src/index.js",
-    "dev:internal": "nodemon dev/index.js",
-    "prettier": "npx prettier . --write",
-    "commit": "node scripts/commit.js",
-    "npm:dry-run": "npm publish --dry-run",
-    "npm:login": "npm login",
-    "npm:publish": "npm publish --access public",
-    "tsc": "npx tsc"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "devDependencies": {
-    "@types/jest": "^30.0.0",
-    "better-sqlite3": "^13.0.3",
-    "jest": "^30.5.2",
-    "msnodesqlv8": "^5.5.0",
-    "mssql": "^12.7.2",
-    "pg": "^8.23.0",
-    "typescript": "^7.0.2"
-  },
-  "directories": {
-    "test": "tests"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ndiing/dal.git"
-  },
-  "bugs": {
-    "url": "https://github.com/ndiing/dal/issues"
-  },
-  "homepage": "https://github.com/ndiing/dal#readme"
+    "name": "@ndiinginc/dal",
+    "version": "1.3.0",
+    "description": "A lightweight, chainable SQL query builder, schema builder, migration runner, and repository layer for Node.js.",
+    "main": "./src/database.js",
+    "types": "./types/database.d.ts",
+    "scripts": {
+        "test": "jest",
+        "test:live": "jest --watchAll",
+        "dev": "nodemon src/index.js",
+        "dev:internal": "nodemon dev/index.js",
+        "prettier": "npx prettier . --write",
+        "commit": "node scripts/commit.js",
+        "npm:dry-run": "npm publish --dry-run",
+        "npm:login": "npm login",
+        "npm:publish": "npm publish --access public",
+        "tsc": "npx tsc"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "type": "commonjs",
+    "devDependencies": {
+        "@types/jest": "^30.0.0",
+        "better-sqlite3": "^13.0.3",
+        "jest": "^30.5.2",
+        "msnodesqlv8": "^5.5.0",
+        "mssql": "^12.7.2",
+        "pg": "^8.23.0",
+        "typescript": "^7.0.2"
+    },
+    "directories": {
+        "test": "tests"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ndiing/dal.git"
+    },
+    "bugs": {
+        "url": "https://github.com/ndiing/dal/issues"
+    },
+    "homepage": "https://github.com/ndiing/dal#readme"
 }

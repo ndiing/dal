@@ -4,7 +4,7 @@ const Index = require("./index.js");
 
 class Table {
     /**@private*/ _method = null;
-    /**@private*/ _name = null;   
+    /**@private*/ _name = null;
     /**
      * @private
      * @type {Constraint}

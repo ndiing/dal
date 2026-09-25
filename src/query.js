@@ -119,11 +119,9 @@ class Query extends Thenable {
     }
 
     doUpdate(...columns) {
-        columns=columns.flat()
+        columns = columns.flat();
         const _onConflict = new Set(this._onConflict);
-        this._doUpdate = 
-        columns.length?columns:
-        this._columns.filter((column) => !_onConflict.has(column));
+        this._doUpdate = columns.length ? columns : this._columns.filter((column) => !_onConflict.has(column));
         return this;
     }
 

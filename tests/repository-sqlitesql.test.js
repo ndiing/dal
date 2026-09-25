@@ -136,10 +136,8 @@ describe("repository-sqlitesql", () => {
         expect(result.rows.length).toBe(3);
     });
 
-    test('test unixepoch()',async () => {
-        const result = await db.query()
-        .select('unixepoch() as now')
-        .first('now')
-        expect(result).toBe(Math.floor(Date.now()/1000))
-    })
+    test("test unixepoch()", async () => {
+        const result = await db.query().select("unixepoch() as now").first("now");
+        expect(result).toBe(Math.floor(Date.now() / 1000));
+    });
 });

@@ -320,9 +320,11 @@ declare class Query extends Thenable {
     private _applyReturning;
     /**@private*/
     private _buildStatement;
-    build(): never[] | {
-        query: any;
-        params: null;
-    };
+    build():
+        | never[]
+        | {
+              query: any;
+              params: null;
+          };
 }
 //# sourceMappingURL=query.d.ts.map

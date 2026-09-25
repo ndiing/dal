@@ -1,4 +1,3 @@
-
 class Index {
     /**@private*/ _table = null;
     /**@private*/ _method = null;
