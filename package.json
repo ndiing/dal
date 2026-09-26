@@ -8,7 +8,7 @@
         "test": "nodemon --exec \"node -e \\\"require('@ndiinginc/test')(require('path').join(process.cwd(),'tests'),{verbose:true})\\\"\"",
         "dev": "nodemon src/index.js",
         "prettier": "npx prettier . --write",
-        "commit": "node scripts/commit.js",
+        "commit": "node -e \"require('@ndiinginc/commit')()\"",
         "npm:dry-run": "npm publish --dry-run",
         "npm:login": "npm login",
         "npm:publish": "npm publish --access public",
@@ -19,6 +19,7 @@
     "license": "ISC",
     "type": "commonjs",
     "devDependencies": {
+        "@ndiinginc/commit": "^1.0.1",
         "@ndiinginc/test": "^1.0.0",
         "@types/jest": "^30.0.0",
         "better-sqlite3": "^13.0.3",
